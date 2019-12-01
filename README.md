@@ -29,6 +29,10 @@ There should be a closed projects page and a closed issues page. They will displ
 
 ### Technologies Used
 - MongoDB
-
+- MVC
+- Auth0
+- Bootstrap + CSS
+- Handlebars
+- jQuery
 
 *More to be decided*

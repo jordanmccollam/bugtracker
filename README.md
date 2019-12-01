@@ -24,3 +24,11 @@ Everything should be able to be removed. This is separate from being closed. Del
 
 - **Closed**
 There should be a closed projects page and a closed issues page. They will display all of the closed projects or closed issues that partain to the project. 
+
+---
+
+### Technologies Used
+- MongoDB
+
+
+*More to be decided*

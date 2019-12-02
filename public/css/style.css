@@ -56,7 +56,9 @@ nav {
 /* BUBBLES or SECTIONS */
 .bubble {
     border-radius: 30px;
-    height: 300px;
+    min-height: 300px;
+    width: inherit;
+    border: none;
 }
 
 .topBubble {

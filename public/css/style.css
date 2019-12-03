@@ -42,7 +42,7 @@ body {
 }
 
 .bigFont {
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .reallyBigFont {
@@ -95,19 +95,29 @@ nav {
     background: #41b853;
 }
 
-.helper-right {
+.helper {
     position: absolute;
+    top: -60px;
+    left: 150px;
+}
+
+@media only screen and (min-width: 1200px) {
+    .helper {
+        left: 180px;
+    }
+}
+
+.helper-right {
     transform: rotate(-10deg);
 }
 .helper-left {
-    position: absolute;
     transform: rotate(10deg);
 }
-.helper-center {
-    position: absolute;
-}
 .helperMessage {
-    margin-top: 60px;
+    margin-top: 0px;
+}
+.mobileHelper {
+    right: -15px;
 }
 
 .shortenMe {

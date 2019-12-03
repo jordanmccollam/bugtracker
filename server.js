@@ -1,6 +1,8 @@
 // Dependancies
 var express = require("express");
 var handlebars = require("express-handlebars");
+var mongoose = require("mongoose");
+var jwt = require("jsonwebtoken");
 
 var PORT = process.env.PORT || 3000;
 
@@ -15,8 +17,8 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to MongoDB
-// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/bugtracker";
-// mongoose.connect(MONGODB_URI);
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/bugtracker";
+mongoose.connect(MONGODB_URI);
 
 // Routes
 require("./routes/htmlRoutes")(app);

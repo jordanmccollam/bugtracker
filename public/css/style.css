@@ -107,10 +107,9 @@ nav {
     position: absolute;
 }
 .helperMessage {
-    margin-top: 80px;
+    margin-top: 60px;
 }
 
-.rotateMe {
-    /* transform: rotate(30deg); */
+.shortenMe {
     line-height: 30px;
 }

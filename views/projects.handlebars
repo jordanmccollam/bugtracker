@@ -1,0 +1,43 @@
+{{!-- NAVBAR --}}
+<nav class="font-primary text-darkBlue fixed-top">
+    <div class="container-fluid bg-yellow">
+        <a href="/" class="text-darkBlue bigFont">b<i class="fas fa-bug"></i>g tracker</a>
+    </div>
+
+    <div class="container">
+        <div class="row mb-5">
+            <a class="col-4 nav-tab" href="/">
+                <div><i class="fas fa-home fa-2x"></i></div>
+            </a>
+            <a class="col-4 nav-tab active" href="/projects">
+                <div><i class="fas fa-project-diagram fa-2x"></i></div>
+            </a>
+            <a class="col-4 nav-tab" href="/">
+                <div><i class="fas fa-user-circle fa-2x"></i></div>
+            </a>
+        </div>
+    </div>
+</nav>
+
+{{!-- Home page IF AUTHENTICATED --}}
+<div class="container wrapper text-center">
+    <div class="row justify-content-center">
+        <div class="col-lg-10 mb-3">
+            <div class="topBubble bubble">
+                <h2 class="font-primary text-darkBlue">progress <i class="fas fa-percentage"></i></h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 mb-3">
+            <div class="leftBubble bubble">
+                <h2 class="font-primary text-darkBlue">projects <i class="fas fa-project-diagram"></i></h2>
+            </div>
+        </div>
+        <div class="col-lg-6 mb-3">
+            <div class="rightBubble bubble">
+                <h2 class="font-primary text-darkBlue">comments <i class="fas fa-comments"></i></h2>
+            </div>
+        </div>
+    </div>
+</div>

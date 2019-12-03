@@ -16,13 +16,37 @@ body {
     color: #161b40;
 }
 
+.text-lightBlue {
+    color: #43bee5;
+}
+
+.text-yellow {
+    color: #efa500;
+}
+
+.text-pink {
+    color: #f40058;
+}
+
+.text-green {
+    color: #41b853;
+}
+
 /* FONTS */
 .font-primary {
     font-family: 'Righteous';
 }
 
+.font-secondary {
+    font-family: 'Acme';
+}
+
 .bigFont {
     font-size: 40px;
+}
+
+.reallyBigFont {
+    font-size: 80px;
 }
 
 /* LINKS */ 
@@ -69,4 +93,24 @@ nav {
 }
 .rightBubble {
     background: #41b853;
+}
+
+.helper-right {
+    position: absolute;
+    transform: rotate(-10deg);
+}
+.helper-left {
+    position: absolute;
+    transform: rotate(10deg);
+}
+.helper-center {
+    position: absolute;
+}
+.helperMessage {
+    margin-top: 80px;
+}
+
+.rotateMe {
+    /* transform: rotate(30deg); */
+    line-height: 25px;
 }

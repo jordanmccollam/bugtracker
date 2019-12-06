@@ -1,23 +1,36 @@
 {{!-- NAVBAR --}}
-<nav class="font-primary text-darkBlue fixed-top">
-    <div class="container-fluid bg-yellow">
-        <a href="/" class="text-darkBlue bigFont">b<i class="fas fa-bug"></i>g tracker</a>
-    </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-yellow py-0">
+    <a class="navbar-brand big-font" href="/">b<i class="fas fa-bug"></i>g tracker</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <div class="container">
-        <div class="row">
-            <a class="col-4 nav-tab active" href="/">
-                <div><i class="fas fa-home"></i></div>
-            </a>
-            <a class="col-4 nav-tab" href="/projects">
-                <div><i class="fas fa-project-diagram"></i></div>
-            </a>
-            <a class="col-4 nav-tab" href="/">
-                <div><i class="fas fa-user-circle"></i></div>
-            </a>
-        </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/">Link</a>
+            </li>
+        </ul>
     </div>
 </nav>
+{{!-- Nav tabs --}}
+<div class="container">
+    <div class="row">
+        <a class="col-4 nav-tab active" href="/">
+            <div><i class="fas fa-home"></i></div>
+        </a>
+        <a class="col-4 nav-tab" href="/projects">
+            <div><i class="fas fa-project-diagram"></i></div>
+        </a>
+        <a class="col-4 nav-tab" href="/">
+            <div><i class="fas fa-user-circle"></i></div>
+        </a>
+    </div>
+</div>
 
 {{!-- Helpers --}}
 <div class="container wrapper">
@@ -42,7 +55,7 @@
         </div>
     </div>
 
-{{!-- Mobile Helper --}}
+    {{!-- Mobile Helper --}}
     <div class="row">
         <div class="col-12 d-lg-none text-right">
             <i class="fas fa-hand-point-up text-pink helper fa-2x mr-5 mobileHelper"></i>
@@ -50,10 +63,10 @@
         </div>
     </div>
 
-{{!-- Welcome content --}}
+    {{!-- Welcome content --}}
     <div class="row mt-lg-5">
         <div class="col-lg-7 d-none d-lg-block text-right border-right border-warning">
-            <h3 class="font-primary text-lightBlue reallyBigFont">Welcome to 
+            <h3 class="font-primary text-lightBlue reallyBigFont">Welcome to
                 <br>
                 <span class="text-yellow">b<i class="fas fa-bug"></i>g tracker</span>
             </h3>

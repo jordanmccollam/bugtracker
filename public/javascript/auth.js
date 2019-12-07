@@ -4,12 +4,12 @@ auth.onAuthStateChanged(user => {
     if (user) {
         $(".userNotAuthenticated").hide();
         $(".userAuthenticated").show();
-        $(".blue-tab").addClass("active");
         $("#welcomeMessage").html(user.email);
-    } else {
+    }
+    else {
         $(".userAuthenticated").hide();
         $(".userNotAuthenticated").show();
-        $(".blue-tab").removeClass("active");
+        $(".nav-tab").removeClass("active");
         $("#welcomeMessage").html("");
     }
 });

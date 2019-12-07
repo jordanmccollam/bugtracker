@@ -8,7 +8,7 @@ module.exports = function(app) {
     });
 
     app.get("/dashboard", function(req, res) {
-        res.render("/dashboard");
+        res.render("dashboard");
     });
 
     app.get("/projects", function(req, res) {

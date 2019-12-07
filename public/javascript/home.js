@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
     // Make the helper arrow bob up and down
     var helper = $(".helper");
 

@@ -1,83 +1,125 @@
 {{!-- NAVBAR --}}
-<nav class="navbar navbar-expand-lg navbar-light bg-yellow py-0">
-    <a class="navbar-brand big-font" href="/">b<i class="fas fa-bug"></i>g tracker</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-0 font-primary">
+    <div class="container">
+        <a class="navbar-brand bigFont text-primary" href="/">b<img src="https://img.icons8.com/nolan/30/000000/bug.png">g tracker</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/">Link</a>
-            </li>
-        </ul>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="userNotAuthenticated">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <button class="nav-link navBtn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false" type="button">login</button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <form class="px-4 py-3" id="login-form">
+                                    <div class="form-group">
+                                        <label for="login-email">Email address</label>
+                                        <input type="email" class="form-control font-secondary" id="login-email"
+                                            placeholder="email@example.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="login-password">Password</label>
+                                        <input type="password" class="form-control font-secondary" id="login-password"
+                                            placeholder="Password">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">login</button>
+                                </form>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <button class="nav-link navBtn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false" type="button">Create Account</button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <form class="px-4 py-3" id="signup-form">
+                                    <div class="form-group">
+                                        <label for="signup-email">Email address</label>
+                                        <input type="email" class="form-control font-secondary" id="signup-email"
+                                            placeholder="email@example.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="signup-password">Password</label>
+                                        <input type="password" class="form-control font-secondary" id="signup-password"
+                                            placeholder="Password">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Create</button>
+                                </form>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="userAuthenticated">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <button class="nav-link navBtn" id="logout-button">logout</button>
+                    </li>
+                    <li class="nav-item">
+                        <div class="nav-link" id="welcomeMessage"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </nav>
 {{!-- Nav tabs --}}
 <div class="container">
     <div class="row">
-        <a class="col-4 nav-tab active" href="/">
-            <div><i class="fas fa-home"></i></div>
+        <a class="col-4 nav-tab blue-tab" href="/">
+            <div class="shaker" id="1"><img src="https://img.icons8.com/dusk/30/000000/speed.png"></div>
         </a>
-        <a class="col-4 nav-tab" href="/projects">
-            <div><i class="fas fa-project-diagram"></i></div>
+        <a class="col-4 nav-tab pink-tab" href="/projects">
+            <div class="shaker" id="2"><img src="https://img.icons8.com/cotton/30/000000/area-chart.png"></div>
         </a>
-        <a class="col-4 nav-tab" href="/">
-            <div><i class="fas fa-user-circle"></i></div>
+        <a class="col-4 nav-tab green-tab" href="/">
+            <div class="shaker" id="3"><img src="https://img.icons8.com/plasticine/35/000000/speech-bubble-with-dots.png"></div>
         </a>
     </div>
 </div>
 
 {{!-- Helpers --}}
-<div class="container wrapper">
+<div class="container wrapper userNotAuthenticated">
     <div class="row">
         <div class="col-4 text-right text-lg-center d-none d-lg-block">
-            <i class="fas fa-hand-point-up text-lightBlue fa-2x helper helper-left"></i>
-            <p class="text-lightBlue helperMessage font-secondary">
-                you are here
+            <i class="fas fa-hand-point-up text-primary fa-2x helper helper-left"></i>
+            <p class="text-primary helperMessage font-secondary">
+                dashboard
             </p>
         </div>
         <div class="col-4 text-right text-lg-center d-none d-lg-block">
-            <i class="fas fa-hand-point-up text-green fa-2x helper helper-center"></i>
-            <p class="text-green helperMessage font-secondary">
-                view projects
-            </p>
-        </div>
-        <div class="col-4 text-right text-lg-center d-none d-lg-block">
-            <i class="fas fa-hand-point-up text-pink fa-2x helper helper-right"></i>
+            <i class="fas fa-hand-point-up text-pink fa-2x helper helper-center"></i>
             <p class="text-pink helperMessage font-secondary">
-                sign up / login
+                projects
             </p>
         </div>
-    </div>
-
-    {{!-- Mobile Helper --}}
-    <div class="row">
-        <div class="col-12 d-lg-none text-right">
-            <i class="fas fa-hand-point-up text-pink helper fa-2x mr-5 mobileHelper"></i>
-            <p class="font-secondary text-pink">start here</p>
+        <div class="col-4 text-right text-lg-center d-none d-lg-block">
+            <i class="fas fa-hand-point-up text-green fa-2x helper helper-right"></i>
+            <p class="text-green helperMessage font-secondary">
+                comments
+            </p>
         </div>
     </div>
 
     {{!-- Welcome content --}}
-    <div class="row mt-lg-5">
-        <div class="col-lg-7 d-none d-lg-block text-right border-right border-warning">
-            <h3 class="font-primary text-lightBlue reallyBigFont">Welcome to
+    <div class="row mt-lg-3 justify-content-center">
+        <div class="col-lg-6 d-none d-lg-block text-right border-right border-warning">
+            <h3 class="font-primary text-light reallyBigFont">Welcome to
                 <br>
-                <span class="text-yellow">b<i class="fas fa-bug"></i>g tracker</span>
+                <span class="text-primary">b<img src="https://img.icons8.com/nolan/96/000000/bug.png">g tracker</span>
             </h3>
         </div>
 
-        <div class="col-5 d-lg-none text-right">
-            <i class="fas fa-bug text-yellow fa-5x mt-5 pt-4"></i>
+        <div class="col-5 d-lg-none text-right mt-2 mt-md-0">
+            <img src="https://img.icons8.com/nolan/150/000000/bug.png">
         </div>
 
-        <div class="col-7 col-lg-4 font-secondary bigFont shortenMe mt-5">
-            <p class="text-lightBlue">looks cool</p>
+        <div class="col-6 col-lg-4 font-secondary bigFont shortenMe mt-md-3 mt-lg-4">
+            <p class="text-primary">looks cool</p>
             <p class="text-green">simple to use</p>
             <p class="text-pink">gets the job done</p>
         </div>
@@ -85,24 +127,24 @@
 </div>
 
 {{!-- Home page IF AUTHENTICATED --}}
-{{!-- <div class="container wrapper text-center">
+<div class="container mt-5 text-center userAuthenticated">
     <div class="row justify-content-center">
-        <div class="col-lg-10 mb-3">
-            <div class="topBubble bubble">
-                <h2 class="font-primary text-darkBlue">progress <i class="fas fa-percentage"></i></h2>
+        <div class="col-lg-10 mb-4">
+            <div class="bubble bg-light blue-bubble">
+                <h2 class="font-primary">progress <img src="https://img.icons8.com/dusk/30/000000/area-chart.png"></h2>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-6 mb-3">
-            <div class="leftBubble bubble">
-                <h2 class="font-primary text-darkBlue">projects <i class="fas fa-project-diagram"></i></h2>
+        <div class="col-lg-6 mb-4">
+            <div class="bg-light bubble pink-bubble">
+                <h2 class="font-primary">projects <img src="https://img.icons8.com/cotton/35/000000/area-chart.png"></h2>
             </div>
         </div>
-        <div class="col-lg-6 mb-3">
-            <div class="rightBubble bubble">
-                <h2 class="font-primary text-darkBlue">comments <i class="fas fa-comments"></i></h2>
+        <div class="col-lg-6 mb-4">
+            <div class="bubble bg-light green-bubble">
+                <h2 class="font-primary">comments <img src="https://img.icons8.com/plasticine/35/000000/speech-bubble-with-dots.png"></h2>
             </div>
         </div>
     </div>
-</div> --}}
+</div>

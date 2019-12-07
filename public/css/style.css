@@ -1,6 +1,15 @@
 body {
-    background: #161b40;
-    font-size: 20px;
+    /* background: #161b40; */
+    font-size: 18px;
+}
+
+.navBtn {
+    background: none;
+    border: none;
+}
+
+#welcomeMessage {
+    font-size: 13px;
 }
 
 .wrapper {
@@ -8,28 +17,22 @@ body {
 }
 
 /* COLORS */
-.bg-yellow {
-    background: #efa500;
+.text-green {
+    color: #60be92;
 }
-
-.text-darkBlue, .text-darkBlue:hover {
-    color: #161b40;
-}
-
-.text-lightBlue {
-    color: #43bee5;
-}
-
-.text-yellow {
-    color: #efa500;
+.bg-green {
+    background: #60be92;
 }
 
 .text-pink {
-    color: #f40058;
+    color: #ff3392;
 }
 
-.text-green {
-    color: #41b853;
+.text-purple {
+    color: #c63bff;
+}
+.bg-pink {
+    background: #ff3392;
 }
 
 /* FONTS */
@@ -46,7 +49,7 @@ body {
 }
 
 .reallyBigFont {
-    font-size: 80px;
+    font-size: 70px;
 }
 
 /* LINKS */ 
@@ -60,21 +63,56 @@ nav {
     width: 100%;
 }
 
-.nav-tab {
-    background: #161b40;
-    color: #efa500;
-    text-align: center;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    padding: 5px 0;
-    border: #efa500 1px solid;
-    cursor: pointer;
+.blue-shadow {
+    box-shadow: 1px 1px 2px #007bff;
+}
+.pink-shadow {
+    box-shadow: 1px 1px 2px #ff3392;
+}
+.green-shadow {
+    box-shadow: 1px 1px 2px #60be92;
 }
 
-.nav-tab.active,
-.nav-tab:hover {
-    background: #efa500;
-    color: #161b40;
+.shaker {
+    position: absolute;
+    left: 45%;
+    top: 1px;
+}
+
+.nav-tab {
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    cursor: pointer;
+    position: relative;
+    padding: 20px 0;
+}
+
+.nav-tab.active {
+    margin-bottom: -15px;
+}
+
+.blue-tab {
+    border-bottom: 2px solid #007bff;
+}
+.pink-tab {
+    border-bottom: 2px solid #ff3392;
+}
+.green-tab {
+    border-bottom: 2px solid #60be92;
+}
+/* .nav-tab.active, .nav-tab:hover {
+    background: #f8f9fa;
+    border: none;
+} */
+
+.blue-bubble {
+    box-shadow: 10px 10px 5px #007bff70;
+}
+.pink-bubble {
+    box-shadow: 10px 10px 5px #ff339280;
+}
+.green-bubble {
+    box-shadow: 10px 10px 5px #60be9280;
 }
 
 /* BUBBLES or SECTIONS */
@@ -89,15 +127,20 @@ nav {
     background: #43bee5;
 }
 .leftBubble {
-    background: #f40058;
+    background: #ff3392;
 }
 .rightBubble {
-    background: #41b853;
+    background: #c63bff;
 }
+
+/* .shaker {
+    position: absolute;
+    right: 50%;
+} */
 
 .helper {
     position: absolute;
-    top: -60px;
+    top: -135px;
     left: 150px;
 }
 
@@ -114,10 +157,7 @@ nav {
     transform: rotate(10deg);
 }
 .helperMessage {
-    margin-top: 0px;
-}
-.mobileHelper {
-    right: -15px;
+    margin-top: -78px;
 }
 
 .shortenMe {

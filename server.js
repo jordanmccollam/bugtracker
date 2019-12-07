@@ -2,7 +2,6 @@
 var express = require("express");
 var handlebars = require("express-handlebars");
 var mongoose = require("mongoose");
-var jwt = require("jsonwebtoken");
 
 var PORT = process.env.PORT || 3000;
 

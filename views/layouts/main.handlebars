@@ -14,10 +14,32 @@
     {{!-- Custom CSS --}}
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="bg-dark">
 
     {{{body}}}
 
+
+{{!-- Firebase Auth --}}
+<script src="https://www.gstatic.com/firebasejs/7.5.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.5.1/firebase-auth.js"></script>
+<script>
+    // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBcYul8xeZMdF1S3GmckwDqFOUNVIlStfA",
+    authDomain: "bug-tracker-a4779.firebaseapp.com",
+    databaseURL: "https://bug-tracker-a4779.firebaseio.com",
+    projectId: "bug-tracker-a4779",
+    storageBucket: "bug-tracker-a4779.appspot.com",
+    messagingSenderId: "456312360391",
+    appId: "1:456312360391:web:aafbb55fff7a2565379de2"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  // make auth references
+  const auth = firebase.auth();
+  var authorized;
+</script>
 {{!-- jQuery --}}
 <script
   src="https://code.jquery.com/jquery-3.4.1.js"
@@ -27,6 +49,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 {{!-- Custom JS --}}
+<script src="javascript/auth.js"></script>
 <script src="javascript/home.js"></script>
 </body>
 </html>

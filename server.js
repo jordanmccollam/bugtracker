@@ -4,7 +4,7 @@ var handlebars = require("express-handlebars");
 var mongoose = require("mongoose");
 var session = require('express-session');
 var passport = require("passport");
-var db = require("./models/index");
+var db = require("./models");
 var LocalStrategy = require("passport-local");
 var passportLocalMongoose = require("passport-local-mongoose");
 

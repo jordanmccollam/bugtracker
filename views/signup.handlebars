@@ -1,0 +1,54 @@
+{{!-- NAVBAR --}}
+<nav class="navbar navbar-expand-lg navbar-light bg-light py-0 font-primary">
+    <div class="container">
+        <a class="navbar-brand bigFont text-primary" href="/">b<img
+                src="https://img.icons8.com/nolan/30/000000/bug.png">g tracker</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                {{#if user}}
+                    <li class="nav-item">
+                        <p class="nav-link text-primary">{{user.username}}</p>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout" id="logout-button">logout</a>
+                    </li>
+                {{else}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login" id="login-button">login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup" id="signup-button">sign up</a>
+                    </li>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+{{!-- SIGNUP --}}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-12 text-center">
+            <h2 class="display-4 font-primary text-light">S I G N &nbsp; U P</h2>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-5">
+            <form action="/signup" method="POST">
+                <div class="form-group font-secondary">
+                    <input type="text" class="form-control" id="signup-username" placeholder="Username" name="username">
+                </div>
+                <div class="form-group font-secondary">
+                    <input type="password" class="form-control" id="signup-password" placeholder="Password"name="password">
+                </div>
+                <button type="submit" class="btn btn-block btn-lg btn-primary font-secondary">submit</button>
+                <a href="/" class="btn btn-block btn-secondary font-secondary pr-4"><img src="https://img.icons8.com/plasticine/25/000000/down-left.png"> back</a>
+            </form>
+        </div>
+    </div>
+</div>

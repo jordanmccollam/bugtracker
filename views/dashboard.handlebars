@@ -1,20 +1,30 @@
 {{!-- NAVBAR --}}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-0 font-primary">
     <div class="container">
-        <a class="navbar-brand bigFont text-primary" href="/">b<img src="https://img.icons8.com/nolan/30/000000/bug.png">g tracker</a>
+        <a class="navbar-brand bigFont text-primary" href="/">b<img
+                src="https://img.icons8.com/nolan/30/000000/bug.png">g tracker</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="/login" class="nav-link">login</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/logout" class="nav-link">logout</a>
-                </li>
+            <ul class="navbar-nav ml-auto">
+                {{#if user}}
+                    <li class="nav-item">
+                        <p class="nav-link text-primary">{{user.username}}</p>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navBtn" href="/logout" id="logout-button">logout</a>
+                    </li>
+                {{else}}
+                    <li class="nav-item">
+                        <button class="nav-link navBtn" id="login-button">login</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link navBtn" id="signup-button">sign up</button>
+                    </li>
+                {{/if}}
             </ul>
         </div>
     </div>
@@ -22,14 +32,15 @@
 {{!-- Nav tabs --}}
 <div class="container">
     <div class="row">
-        <a class="col-4 nav-tab blue-tab" href="/">
+        <a class="col-4 nav-tab blue-tab active" href="/dashboard">
             <div class="shaker" id="1"><img src="https://img.icons8.com/dusk/30/000000/speed.png"></div>
         </a>
-        <a class="col-4 nav-tab pink-tab" href="/">
+        <a class="col-4 nav-tab pink-tab" href="/projects">
             <div class="shaker" id="2"><img src="https://img.icons8.com/cotton/30/000000/area-chart.png"></div>
         </a>
-        <a class="col-4 nav-tab green-tab" href="/">
-            <div class="shaker" id="3"><img src="https://img.icons8.com/plasticine/35/000000/speech-bubble-with-dots.png"></div>
+        <a class="col-4 nav-tab green-tab" href="/comments">
+            <div class="shaker" id="3"><img
+                    src="https://img.icons8.com/plasticine/35/000000/speech-bubble-with-dots.png"></div>
         </a>
     </div>
 </div>

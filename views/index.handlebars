@@ -1,13 +1,3 @@
-{{!-- ALERT --}}
-{{#if error}}
-<div class="alert alert-danger alert-dismissible fade show font-secondary" role="alert">
-  <strong class="font-primary">Oops! </strong> <span>{{error}}</span>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-{{/if}}
-
 {{!-- NAVBAR --}}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-0 font-primary">
     <div class="container">
@@ -25,14 +15,14 @@
                         <p class="nav-link text-primary">{{user.username}}</p>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link navBtn" href="/logout" id="logout-button">logout</a>
+                        <a class="nav-link" href="/logout" id="logout-button">logout</a>
                     </li>
                 {{else}}
                     <li class="nav-item">
-                        <button class="nav-link navBtn" id="login-button">login</button>
+                        <a class="nav-link" href="/login" id="login-button">login</a>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link navBtn" id="signup-button">sign up</button>
+                        <a class="nav-link" href="/signup" id="signup-button">sign up</a>
                     </li>
                 {{/if}}
             </ul>
@@ -95,63 +85,6 @@
             <p class="text-primary">looks cool</p>
             <p class="text-green">simple to use</p>
             <p class="text-pink">gets the job done</p>
-        </div>
-    </div>
-</div>
-
-{{!-- AUTH MODALS --}}
-{{!-- SIGNUP --}}
-<div class="modal font-primary" tabindex="-1" role="dialog" id="signup-modal">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">sign up</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form class="mb-3" action="/signup" method="POST">
-                    <div class="form-group font-secondary">
-                        <label for="signup-username">Username</label>
-                        <input type="text" class="form-control" id="signup-username"placeholder="Username" name="username">
-                    </div>
-                    <div class="form-group font-secondary">
-                        <label for="signup-password">Password</label>
-                        <input type="password" class="form-control" id="signup-password" placeholder="Password" name="password">
-                    </div>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">create</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-{{!-- LOGIN --}}
-<div class="modal font-primary" tabindex="-1" role="dialog" id="login-modal">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">login</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form class="mb-3" action="/login" method="POST">
-                    <div class="form-group font-secondary">
-                        <label for="login-username">Username</label>
-                        <input type="text" class="form-control" id="login-username"placeholder="Username" name="username">
-                    </div>
-                    <div class="form-group font-secondary">
-                        <label for="login-password">Password</label>
-                        <input type="password" class="form-control" id="login-password" placeholder="Password" name="password">
-                    </div>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">login</button>
-                </form>
-            </div>
         </div>
     </div>
 </div>

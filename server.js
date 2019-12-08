@@ -49,9 +49,8 @@ app.post("/signup", function(req, res) {
   db.User.register(new db.User({username: req.body.username}), req.body.password, function(err, user) {
     if (err) {
       console.log(err);
-      return res.render("index", data = {
-        error: err,
-        user: req.user
+      return res.render("signup", data = {
+        error: err
       });
     }
     passport.authenticate("local")(req, res, function() {
@@ -62,7 +61,7 @@ app.post("/signup", function(req, res) {
 
 app.post("/login", passport.authenticate("local", {
   successRedirect: "/dashboard",
-  failureRedirect: "/"
+  failureRedirect: "/login"
 }), function(req, res) {});
 
 app.get("/logout", function(req, res) {

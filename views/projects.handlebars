@@ -1,5 +1,5 @@
 {{!-- NAVBAR --}}
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-0 font-primary">
+<nav class="navbar navbar-expand-lg navbar-light bg-light py-0 font-primary">
     <div class="container">
         <a class="navbar-brand bigFont text-primary" href="/">b<img
                 src="https://img.icons8.com/nolan/30/000000/bug.png">g tracker</a>
@@ -56,19 +56,19 @@
     {{#each projects}}
     {{#if name}}
         <div class="row mt-3">
-            <div class="col-12">
-                <button class="btn btn-block btn-lg btn-primary">
+            <div class="col-12 col-lg-6 font-secondary">
+                <button class="btn btn-block btn-lg btn-light pink-bubble">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-12">
-                                <h3 class="font-secondary">{{name}}</h3>
+                                <h3>{{name}}</h3>
                             </div>
                             <div class="col-lg-6">
-                                <h4 class="font-secondary">Issues</h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, asperiores!</p>
+                                <h4>Open Issues: <span class="font-primary">4</span></h4>
+                                {{!-- <div class="font-primary">4</div> --}}
                             </div>
                             <div class="col-lg-6">
-                                <h4 class="font-secondary">Comments</h4>
+                                <h4>Open Comments <span class="font-primary">6</span></h4>
                             </div>
                         </div>
                     </div>

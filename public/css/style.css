@@ -26,8 +26,22 @@ body {
 .text-purple {
     color: #c63bff;
 }
+
 .bg-pink {
     background: #ff3392;
+}
+
+.border-bottom-pink {
+    border-bottom: 1px solid #ff3392;
+}
+
+.btn-pink {
+    background: none;
+    color: #ff3392;
+    border: none;
+}
+.btn-pink:hover {
+    color: #c2246e;
 }
 /* --- */
 

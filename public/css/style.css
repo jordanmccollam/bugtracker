@@ -3,11 +3,6 @@ body {
     font-size: 18px;
 }
 
-.navBtn {
-    background: none;
-    border: none;
-}
-
 #welcomeMessage {
     font-size: 13px;
 }
@@ -34,6 +29,7 @@ body {
 .bg-pink {
     background: #ff3392;
 }
+/* --- */
 
 /* FONTS */
 .font-primary {
@@ -51,12 +47,14 @@ body {
 .reallyBigFont {
     font-size: 70px;
 }
+/* --- */
 
 /* LINKS */ 
 a, a:hover {
     text-decoration: none;
     color: inherit;
 }
+/* --- */
 
 /* NAV */
 nav {
@@ -100,6 +98,15 @@ nav {
 .green-tab {
     border-bottom: 2px solid #60be92;
 }
+/* --- */
+
+/* BUBBLES */
+.bubble {
+    border-radius: 30px;
+    min-height: 300px;
+    width: inherit;
+    border: none;
+}
 
 .blue-bubble {
     box-shadow: 10px 10px 5px #007bff70;
@@ -111,29 +118,7 @@ nav {
     box-shadow: 10px 10px 5px #60be9280;
 }
 
-/* BUBBLES or SECTIONS */
-.bubble {
-    border-radius: 30px;
-    min-height: 300px;
-    width: inherit;
-    border: none;
-}
-
-.topBubble {
-    background: #43bee5;
-}
-.leftBubble {
-    background: #ff3392;
-}
-.rightBubble {
-    background: #c63bff;
-}
-
-/* .shaker {
-    position: absolute;
-    right: 50%;
-} */
-
+/* WELCOME PAGE */
 .helper {
     position: absolute;
     top: -135px;
@@ -146,12 +131,6 @@ nav {
     }
 }
 
-.helper-right {
-    transform: rotate(-10deg);
-}
-.helper-left {
-    transform: rotate(10deg);
-}
 .helperMessage {
     margin-top: -78px;
 }
@@ -159,3 +138,4 @@ nav {
 .shortenMe {
     line-height: 30px;
 }
+/* --- */

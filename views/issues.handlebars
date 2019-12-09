@@ -85,7 +85,7 @@
     <div class="row mt-4">
         {{#each project.issues}}{{#if name}}
         <div class="col-6">
-            <button class="btn btn-block btn-issue font-secondary">
+            <button class="btn btn-block btn-issue font-secondary findCategory" active-category="{{category}}">
                 <div class="row">
                     <div class="col-sm-6 text-left bigFont">{{name}}</div>
                     <div class="col-sm-6 text-right">
@@ -95,16 +95,16 @@
                 <div class="row display-active">
                     <div class="col-12">
                         <div class="btn-group btn-block btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-sm btn-outline-success active">
+                            <label class="btn btn-sm btn-outline-success idea">
                                 <input type="radio" name="ideas" autocomplete="off" checked> Idea
                             </label>
-                            <label class="btn btn-sm btn-outline-success">
+                            <label class="btn btn-sm btn-outline-success todo">
                                 <input type="radio" name="todo" autocomplete="off"> Todo
                             </label>
-                            <label class="btn btn-sm btn-outline-success">
+                            <label class="btn btn-sm btn-outline-success inprogress">
                                 <input type="radio" name="inprogress" autocomplete="off"> In Progress
                             </label>
-                            <label class="btn btn-sm btn-outline-success">
+                            <label class="btn btn-sm btn-outline-success closed">
                                 <input type="radio" name="closed" autocomplete="off"> Closed
                             </label>
                         </div>

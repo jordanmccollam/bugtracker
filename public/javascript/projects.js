@@ -9,5 +9,9 @@ $(document).ready(function() {
         $("#add-issue-modal").modal("show");
     });
 
+    $(".findCategory").on("click", function() {
+        var category = $(this).attr("active-category");
+        $(this).find("." + category).addClass("active");
+    })
 // END of jQuery
 })

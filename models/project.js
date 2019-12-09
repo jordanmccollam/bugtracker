@@ -5,10 +5,10 @@ var ProjectSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    issues: {
+    issues: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Issue"
-    }
+    }]
 });
 
 module.exports = mongoose.model("Project", ProjectSchema);

@@ -36,6 +36,7 @@ module.exports = function(app, isLoggedIn) {
         })
     });
 
+    // POST ---
     app.post("/addproject", function(req, res) {
         db.Project.create(req.body).then(function(dbProject) {
             return db.User.findOneAndUpdate(
@@ -63,7 +64,20 @@ module.exports = function(app, isLoggedIn) {
         }).then(function(dbProject) {
             res.redirect("/projects/" + id);
         }).catch(function(err) {
-            console.log(err);
+            res.redirect("/projects");
+        });
+    });
+
+    // DELETE ---
+    app.delete("/deleteproject/:id", function(req, res) {
+        var id = req.params.id;
+
+        // console.log("TRYING TO REMOVE " + id);
+
+        db.Project.deleteOne({_id: id}).then(function(dbProject) {
+            console.log("REMOVED " + id);
+        }).catch(function(err) {
+            if (err) {console.log(err)};
         });
     });
 

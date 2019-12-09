@@ -95,16 +95,16 @@
                 <div class="row display-active">
                     <div class="col-12">
                         <div class="btn-group btn-block btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-sm btn-outline-success idea">
+                            <label class="btn btn-sm btn-success idea">
                                 <input type="radio" name="ideas" autocomplete="off" checked> Idea
                             </label>
-                            <label class="btn btn-sm btn-outline-success todo">
+                            <label class="btn btn-sm btn-success todo">
                                 <input type="radio" name="todo" autocomplete="off"> Todo
                             </label>
-                            <label class="btn btn-sm btn-outline-success inprogress">
+                            <label class="btn btn-sm btn-success inprogress">
                                 <input type="radio" name="inprogress" autocomplete="off"> In Progress
                             </label>
-                            <label class="btn btn-sm btn-outline-success closed">
+                            <label class="btn btn-sm btn-success closed">
                                 <input type="radio" name="closed" autocomplete="off"> Closed
                             </label>
                         </div>
@@ -123,7 +123,7 @@
 
     <div class="row mt-5">
         <div class="col-12 text-right font-secondary">
-            <button class="btn btn-outline-danger" id="delete-project-{{_id}}">Delete Project <i class="fas fa-trash-alt"></i></button>
+            <button class="btn btn-outline-danger delete-project" data-id="{{project._id}}">Delete Project <i class="fas fa-trash-alt"></i></button>
         </div>
     </div>
 </div>
@@ -175,4 +175,22 @@
             </div>
         </div>
     </div>
+</div>
+
+{{!-- Delete confirmation --}}
+<div class="modal" tabindex="-1" role="dialog" id="delete-confirm">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Project Deleted</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>

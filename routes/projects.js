@@ -38,14 +38,16 @@ module.exports = function(app, isLoggedIn) {
 
     // POST ---
     app.post("/addproject", function(req, res) {
+        var projectID;
         db.Project.create(req.body).then(function(dbProject) {
+            projectID = dbProject._id;
             return db.User.findOneAndUpdate(
                 {_id: req.user.id},
                 { $push: {projects: dbProject.id}},
                 {new: true}
             );
         }).then(function(dbUser) {
-            res.redirect("/projects");
+            res.redirect("/projects/" + projectID);
         }).catch(function(err) {
             console.log(err);
         });

@@ -20,17 +20,17 @@ $(document).ready(function () {
         var shaker = $(this).find(".shaker");
         shakeAnimation(shaker, this);
 
-        if ($(this).hasClass("active") === false) {
-            $(this).animate({marginBottom: "-=4px"}, 200);
-        }
+        // if ($(this).hasClass("active") === false) {
+        //     $(this).animate({marginBottom: "-=4px"}, 200);
+        // }
     });
 
-    $(tab).mouseout(function() {
-        if ($(this).hasClass("active") === false) {
-            $(this).animate({marginBottom: "+=4px"}, 200);
-        }
+    // $(tab).mouseout(function() {
+    //     if ($(this).hasClass("active") === false) {
+    //         $(this).animate({marginBottom: "+=4px"}, 200);
+    //     }
         
-    })
+    // })
 
     function shakeAnimation(shaker, hoveredTab) {
         if (count < 2) {

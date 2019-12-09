@@ -1,5 +1,5 @@
 {{!-- NAVBAR --}}
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-0 font-primary">
+<nav class="navbar navbar-expand-lg navbar-light bg-light py-0 font-primary">
     <div class="container">
         <a class="navbar-brand bigFont text-primary" href="/">b<img
                 src="https://img.icons8.com/nolan/30/000000/bug.png">g tracker</a>
@@ -11,19 +11,19 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 {{#if user}}
-                    <li class="nav-item">
-                        <p class="nav-link text-primary">{{user.username}}</p>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navBtn" href="/logout" id="logout-button">logout</a>
-                    </li>
+                <li class="nav-item">
+                    <p class="nav-link text-primary"><span class="text-muted font-italic">signed in as &nbsp;</span> {{user.username}}</p>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link navBtn" href="/logout" id="logout-button">logout</a>
+                </li>
                 {{else}}
-                    <li class="nav-item">
-                        <button class="nav-link navBtn" id="login-button">login</button>
-                    </li>
-                    <li class="nav-item">
-                        <button class="nav-link navBtn" id="signup-button">sign up</button>
-                    </li>
+                <li class="nav-item">
+                    <button class="nav-link navBtn" id="login-button">login</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link navBtn" id="signup-button">sign up</button>
+                </li>
                 {{/if}}
             </ul>
         </div>
@@ -33,37 +33,101 @@
 <div class="container">
     <div class="row">
         <a class="col-4 nav-tab blue-tab active" href="/dashboard">
-            <div class="shaker" id="1"><img src="https://img.icons8.com/dusk/30/000000/speed.png"></div>
+            <div class="shaker"><i class="fas fa-id-card bigFont text-primary"></i></div>
         </a>
         <a class="col-4 nav-tab pink-tab" href="/projects">
-            <div class="shaker" id="2"><img src="https://img.icons8.com/cotton/30/000000/area-chart.png"></div>
+            <div class="shaker"><i class="fas fa-project-diagram bigFont text-pink"></i></div>
         </a>
-        <a class="col-4 nav-tab green-tab" href="/comments">
-            <div class="shaker" id="3"><img
-                    src="https://img.icons8.com/plasticine/35/000000/speech-bubble-with-dots.png"></div>
+        <a class="col-4 nav-tab purple-tab" href="/comments">
+            <div class="shaker"><i class="fas fa-comments bigFont text-purple"></i></div>
         </a>
     </div>
 </div>
 
-{{!-- Home page IF AUTHENTICATED --}}
-<div class="container mt-5 text-center">
-    <div class="row justify-content-center">
-        <div class="col-lg-10 mb-4">
-            <div class="bubble bg-light blue-bubble">
-                <h2 class="font-primary">progress <img src="https://img.icons8.com/dusk/30/000000/area-chart.png"></h2>
+{{!-- Dashboard --}}
+<div class="container my-5">
+
+    {{!-- User --}}
+    <div class="row mb-5 text-center">
+        <div class="col-lg-4 text-center text-light mb-5 mb-lg-0 pt-lg-5">
+            <i class="fas fa-user-circle fa-3x"></i>
+            <h2 class="font-primary bigFont">{{user.username}}</h2>
+        </div>
+
+        <div class="col-lg-8">
+            <div class="bubble green-bubble">
+                <h2 class="font-primary text-green text-center">incomplete</h2>
+                <div class="row text-light font-secondary">
+                    <div class="col-4">
+                        <h5>projects</h5>
+                        <h5 class="display-4"><i class="fab fa-slack-hash text-pink d-none d-sm-inline"></i> 0</h5>
+                    </div>
+                    <div class="col-4">
+                        <h5>issues</h5>
+                        <h5 class="display-4"><i class="fab fa-slack-hash text-purple d-none d-sm-inline"></i> 0</h5>
+                    </div>
+                    <div class="col-4">
+                        <h5>comments</h5>
+                        <h5 class="display-4"><i class="fab fa-slack-hash text-primary d-none d-sm-inline"></i> 0</h5>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
     <div class="row">
-        <div class="col-lg-6 mb-4">
-            <div class="bubble bg-light pink-bubble">
-                <h2 class="font-primary">projects <img src="https://img.icons8.com/cotton/35/000000/area-chart.png"></h2>
-            </div>
+        <div class="col-lg-7 pink-bubble pb-4">
+            <h2 class="font-primary text-pink border-bottom-pink pb-2">p r o j e c t s <i class="fas fa-project-diagram"></i></h2>
+            {{#each projects}}{{#if name}}
+                <div class="btn btn-block btn-project font-secondary">
+                    <div class="row">
+                        <div class="col-sm-6 text-left bigFont">{{name}}</div>
+                        <div class="col-sm-6 text-right">
+                            <i class="fas fa-exclamation"></i>issues: 0 | <i class="fas fa-comments"></i> comments: 0
+                        </div>
+                    </div>
+                </div>
+            {{/if}}{{/each}}
         </div>
-        <div class="col-lg-6 mb-4">
-            <div class="bubble bg-light green-bubble">
-                <h2 class="font-primary">comments <img src="https://img.icons8.com/plasticine/35/000000/speech-bubble-with-dots.png"></h2>
-            </div>
+
+        <div class="col-lg-1"></div>
+
+        <div class="col-lg-4 blue-bubble mt-5 mt-lg-0">
+            <h2 class="font-primary text-primary text-center">comments</h2>
+            {{#each projects}}{{#if name}}
+                <div class="row text-light justify-content-center mb-3">
+                    <div class="col-11 border-top">
+                        <span class="text-primary font-secondary">{{name}}:</span>
+                        <span class="comment-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam commodi adipisci odio delectus officia aspernatur ullam illum quis. Mollitia nostrum architecto modi distinctio dolorum error quae officiis ipsam vel consectetur!</<span>
+                    </div>
+                </div>
+            {{/if}}{{/each}}
         </div>
     </div>
+
+
+    {{!-- <div class="row">
+        <div class="col-lg-4">
+            <div class="bubble green-bubble">
+                <h2 class="font-primary text-green text-center">progress</h2>
+                
+                <div class="row justify-content-center text-light font-secondary">
+                    <div class="col-9 py-2 bigFont">
+                        <div class="row">
+                            <div class="col-6 pt-4">Projects</div>
+                            <div class="col-6 text-right reallyBigFont"><i class="fas fa-percentage text-pink"></i> 60</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center text-light font-secondary">
+                    <div class="col-9 py-2 bigFont">
+                        <div class="row">
+                            <div class="col-6 pt-4">Issues</div>
+                            <div class="col-6 text-right reallyBigFont"><i class="fas fa-percentage text-primary"></i> 30</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> --}}
 </div>

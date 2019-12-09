@@ -12,6 +12,18 @@ body {
 }
 
 /* COLORS */
+.btn-subtle {
+    background: none;
+    border: none;
+}
+
+.border-top-green {
+    border-top: #60be92 1px solid;
+}
+.border-bottom-green {
+    border-bottom: #60be92 1px solid;
+}
+
 .text-green {
     color: #60be92;
 }
@@ -43,9 +55,22 @@ body {
 .btn-pink:hover {
     color: #c2246e;
 }
+
+.btn-project {
+    background: #f8f9fa;
+}
+.btn-project:hover {
+    cursor: pointer;
+    background: #ff3392;
+    transition: background 1s;
+}
 /* --- */
 
 /* FONTS */
+.comment-text {
+    font-size: 14px;
+}
+
 .font-primary {
     font-family: 'Righteous';
 }
@@ -92,11 +117,13 @@ nav {
 }
 
 .nav-tab {
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     cursor: pointer;
     position: relative;
-    padding: 20px 0;
+    padding: 18px 0 18px 0;
+    margin-top: 5px;
+    /* border-bottom: 2px solid #f8f9fa; */
 }
 
 .nav-tab.active {
@@ -112,24 +139,30 @@ nav {
 .green-tab {
     border-bottom: 2px solid #60be92;
 }
+.purple-tab {
+    border-bottom: 2px solid #c63bff;
+}
 /* --- */
 
 /* BUBBLES */
 .bubble {
     border-radius: 30px;
-    min-height: 300px;
+    min-height: 170px;
     width: inherit;
     border: none;
 }
 
 .blue-bubble {
     box-shadow: 10px 10px 5px #007bff70;
+    border-radius: 20px;
 }
 .pink-bubble {
     box-shadow: 10px 10px 5px #ff339280;
+    border-radius: 20px;
 }
 .green-bubble {
     box-shadow: 10px 10px 5px #60be9280;
+    border-radius: 20px;
 }
 
 /* WELCOME PAGE */

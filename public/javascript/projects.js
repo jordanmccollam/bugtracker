@@ -22,19 +22,19 @@ $(document).ready(function() {
         var redirect = window.location.href = "/projects";
 
         $.ajax({
-            url: "/deleteproject/" + id,
+            url: "/delete/" + id,
             type: "DELETE",
         }).then(redirect);
     });
 
     $(".delete-issue").on("click", function() {
         event.preventDefault();
-        var id = $(this).attr("data-id");
-
+        var issueID = $(this).attr("data-id");
+        var projectID =  window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
         var redirect = window.location.reload();
 
         $.ajax({
-            url: "/deleteissue/" + id,
+            url: "/delete/" + projectID + "/" + issueID,
             type: "DELETE",
         }).then(redirect);
     });

@@ -69,7 +69,7 @@ module.exports = function(app, isLoggedIn) {
     });
 
     // DELETE ---
-    app.delete("/deleteproject/:id", function(req, res) {
+    app.delete("/delete/:id", function(req, res) {
         var id = req.params.id;
 
         db.Project.deleteOne({_id: id}).then(function(dbProject) {
@@ -88,19 +88,20 @@ module.exports = function(app, isLoggedIn) {
         });
     });
 
-    app.delete("/deleteissue/:id", function(req, res) {
-        var id = req.params.id;
+    app.delete("/delete/:projectID/:issueID", function(req, res) {
+        var projectID = req.params.projectID;
+        var issueID = req.params.issueID;
 
-        db.Issue.deleteOne({_id: id}).then(function(dbIssue) {
+        db.Issue.deleteOne({_id: issueID}).then(function(dbIssue) {
             
-            // db.Project.findOneAndDelete(
-            //     {_id: id},
-            //     { $pull: {issues: id}}
-            // ).then(function(dbUser) {
-            //     console.log("REMOVED " + id);
-            // }).catch(function(err) {
-            //     if (err) {console.log(err)}
-            // });
+            db.Project.findOneAndUpdate(
+                {_id: projectID},
+                { $pull: {issues: issueID}}
+            ).then(function(dbUser) {
+                console.log("REMOVED " + id);
+            }).catch(function(err) {
+                if (err) {console.log(err)}
+            });
 
         }).catch(function(err) {
             if (err) {console.log(err)};

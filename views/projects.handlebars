@@ -11,19 +11,19 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 {{#if user}}
-                    <li class="nav-item">
-                        <p class="nav-link text-primary">{{user.username}}</p>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navBtn" href="/logout" id="logout-button">logout</a>
-                    </li>
+                <li class="nav-item">
+                    <p class="nav-link text-primary"><span class="text-muted font-italic">signed in as &nbsp;</span> {{user.username}}</p>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link navBtn" href="/logout" id="logout-button">logout</a>
+                </li>
                 {{else}}
-                    <li class="nav-item">
-                        <button class="nav-link navBtn" id="login-button">login</button>
-                    </li>
-                    <li class="nav-item">
-                        <button class="nav-link navBtn" id="signup-button">sign up</button>
-                    </li>
+                <li class="nav-item">
+                    <button class="nav-link navBtn" id="login-button">login</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link navBtn" id="signup-button">sign up</button>
+                </li>
                 {{/if}}
             </ul>
         </div>
@@ -33,21 +33,20 @@
 <div class="container">
     <div class="row">
         <a class="col-4 nav-tab blue-tab" href="/dashboard">
-            <div class="shaker" id="1"><img src="https://img.icons8.com/dusk/30/000000/speed.png"></div>
+            <div class="shaker"><i class="fas fa-id-card bigFont text-primary"></i></div>
         </a>
         <a class="col-4 nav-tab pink-tab active" href="/projects">
-            <div class="shaker" id="2"><img src="https://img.icons8.com/cotton/30/000000/area-chart.png"></div>
+            <div class="shaker"><i class="fas fa-project-diagram bigFont text-pink"></i></div>
         </a>
-        <a class="col-4 nav-tab green-tab" href="/comments">
-            <div class="shaker" id="3"><img
-                    src="https://img.icons8.com/plasticine/35/000000/speech-bubble-with-dots.png"></div>
+        <a class="col-4 nav-tab purple-tab" href="/comments">
+            <div class="shaker"><i class="fas fa-comments bigFont text-purple"></i></div>
         </a>
     </div>
 </div>
 
 <div class="container mt-4">
-    <div class="row">
-        <div class="col-12 border-bottom-pink d-flex justify-content-between">
+    <div class="row border-bottom-pink">
+        <div class="col-lg-12 d-flex justify-content-between">
             <h2 class="display-4 font-primary text-light">projects</h2>
             <button class="btn-pink display-4" id="add-project"><i class="fas fa-plus"></i></button>
         </div>
@@ -56,23 +55,15 @@
     {{#each projects}}
     {{#if name}}
         <div class="row mt-3">
-            <div class="col-12 col-lg-6 font-secondary">
-                <button class="btn btn-block btn-lg btn-light pink-bubble">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-12">
-                                <h3>{{name}}</h3>
-                            </div>
-                            <div class="col-lg-6">
-                                <h4>Open Issues: <span class="font-primary">4</span></h4>
-                                {{!-- <div class="font-primary">4</div> --}}
-                            </div>
-                            <div class="col-lg-6">
-                                <h4>Open Comments <span class="font-primary">6</span></h4>
-                            </div>
+            <div class="col-lg-6 font-secondary">
+                <div class="btn btn-block btn-project font-secondary">
+                    <div class="row">
+                        <div class="col-sm-6 text-left bigFont">{{name}}</div>
+                        <div class="col-sm-6 text-right">
+                            <i class="fas fa-exclamation"></i>issues: 0 | <i class="fas fa-comments"></i> comments: 0
                         </div>
                     </div>
-                </button>
+                </div>
             </div>
         </div>
     {{/if}}

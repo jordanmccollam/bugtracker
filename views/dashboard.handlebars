@@ -15,14 +15,14 @@
                     <p class="nav-link text-primary"><span class="text-muted font-italic">signed in as &nbsp;</span> {{user.username}}</p>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link navBtn" href="/logout" id="logout-button">logout</a>
+                    <a class="nav-link" href="/logout">logout</a>
                 </li>
                 {{else}}
                 <li class="nav-item">
-                    <button class="nav-link navBtn" id="login-button">login</button>
+                    <a class="nav-link" href="/login">login</a>
                 </li>
                 <li class="nav-item">
-                    <button class="nav-link navBtn" id="signup-button">sign up</button>
+                    <a class="nav-link" href="/signup">sign up</a>
                 </li>
                 {{/if}}
             </ul>
@@ -31,15 +31,15 @@
 </nav>
 {{!-- Nav tabs --}}
 <div class="container">
-    <div class="row">
-        <a class="col-4 nav-tab blue-tab active" href="/dashboard">
-            <div class="shaker"><i class="fas fa-id-card bigFont text-primary"></i></div>
+    <div class="row text-secondary">
+        <a class="col-4 nav-tab active" href="/dashboard">
+            <div class="shaker"><i class="fas fa-id-card bigFont"></i></div>
         </a>
-        <a class="col-4 nav-tab pink-tab" href="/projects">
-            <div class="shaker"><i class="fas fa-project-diagram bigFont text-pink"></i></div>
+        <a class="col-4 nav-tab" href="/projects">
+            <div class="shaker"><i class="fas fa-project-diagram bigFont"></i></div>
         </a>
-        <a class="col-4 nav-tab purple-tab" href="/comments">
-            <div class="shaker"><i class="fas fa-comments bigFont text-purple"></i></div>
+        <a class="col-4 nav-tab" href="/comments">
+            <div class="shaker"><i class="fas fa-comments bigFont"></i></div>
         </a>
     </div>
 </div>
@@ -55,20 +55,20 @@
         </div>
 
         <div class="col-lg-8">
-            <div class="bubble green-bubble">
-                <h2 class="font-primary text-green text-center">incomplete</h2>
+            <div class="border-left-purple">
+                <h2 class="font-primary text-purple text-center">incomplete</h2>
                 <div class="row text-light font-secondary">
                     <div class="col-4">
                         <h5>projects</h5>
-                        <h5 class="display-4"><i class="fab fa-slack-hash text-pink d-none d-sm-inline"></i> 0</h5>
+                        <h5 class="display-4"><i class="fas fa-hashtag d-none d-sm-inline"></i> 0</h5>
                     </div>
                     <div class="col-4">
                         <h5>issues</h5>
-                        <h5 class="display-4"><i class="fab fa-slack-hash text-purple d-none d-sm-inline"></i> 0</h5>
+                        <h5 class="display-4"><i class="fas fa-hashtag d-none d-sm-inline"></i> 0</h5>
                     </div>
                     <div class="col-4">
                         <h5>comments</h5>
-                        <h5 class="display-4"><i class="fab fa-slack-hash text-primary d-none d-sm-inline"></i> 0</h5>
+                        <h5 class="display-4"><i class="fas fa-hashtag d-none d-sm-inline"></i> 0</h5>
                     </div>
                 </div>
             </div>
@@ -76,8 +76,8 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-7 pink-bubble pb-4">
-            <h2 class="font-primary text-pink border-bottom-pink pb-2">p r o j e c t s <i class="fas fa-project-diagram"></i></h2>
+        <div class="col-lg-7 pb-4">
+            <h2 class="font-primary text-pink border-bottom-pink pb-2 mb-3">p r o j e c t s <i class="fas fa-project-diagram"></i></h2>
             {{#each projects}}{{#if name}}
                 <div class="btn btn-block btn-project font-secondary">
                     <div class="row">
@@ -90,14 +90,14 @@
             {{/if}}{{/each}}
         </div>
 
-        <div class="col-lg-1"></div>
+        {{!-- <div class="col-lg-1"></div> --}}
 
-        <div class="col-lg-4 blue-bubble mt-5 mt-lg-0">
+        <div class="col-lg-5 border-left border-primary mt-5 mt-lg-0">
             <h2 class="font-primary text-primary text-center">comments</h2>
             {{#each projects}}{{#if name}}
                 <div class="row text-light justify-content-center mb-3">
                     <div class="col-11 border-top">
-                        <span class="text-primary font-secondary">{{name}}:</span>
+                        <span class="text-primary font-secondary">{{name}} ({{name}}):</span>
                         <span class="comment-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam commodi adipisci odio delectus officia aspernatur ullam illum quis. Mollitia nostrum architecto modi distinctio dolorum error quae officiis ipsam vel consectetur!</<span>
                     </div>
                 </div>

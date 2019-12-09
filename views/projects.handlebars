@@ -15,14 +15,14 @@
                     <p class="nav-link text-primary"><span class="text-muted font-italic">signed in as &nbsp;</span> {{user.username}}</p>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link navBtn" href="/logout" id="logout-button">logout</a>
+                    <a class="nav-link" href="/logout">logout</a>
                 </li>
                 {{else}}
                 <li class="nav-item">
-                    <button class="nav-link navBtn" id="login-button">login</button>
+                    <a class="nav-link" href="/login">login</a>
                 </li>
                 <li class="nav-item">
-                    <button class="nav-link navBtn" id="signup-button">sign up</button>
+                    <a class="nav-link" href="/signup">sign up</a>
                 </li>
                 {{/if}}
             </ul>
@@ -31,15 +31,15 @@
 </nav>
 {{!-- Nav tabs --}}
 <div class="container">
-    <div class="row">
-        <a class="col-4 nav-tab blue-tab" href="/dashboard">
-            <div class="shaker"><i class="fas fa-id-card bigFont text-primary"></i></div>
+    <div class="row text-secondary">
+        <a class="col-4 nav-tab" href="/dashboard">
+            <div class="shaker"><i class="fas fa-id-card bigFont"></i></div>
         </a>
-        <a class="col-4 nav-tab pink-tab active" href="/projects">
-            <div class="shaker"><i class="fas fa-project-diagram bigFont text-pink"></i></div>
+        <a class="col-4 nav-tab active" href="/projects">
+            <div class="shaker"><i class="fas fa-project-diagram bigFont"></i></div>
         </a>
-        <a class="col-4 nav-tab purple-tab" href="/comments">
-            <div class="shaker"><i class="fas fa-comments bigFont text-purple"></i></div>
+        <a class="col-4 nav-tab" href="/comments">
+            <div class="shaker"><i class="fas fa-comments bigFont"></i></div>
         </a>
     </div>
 </div>

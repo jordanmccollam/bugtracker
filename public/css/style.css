@@ -23,6 +23,9 @@ body {
 .border-bottom-green {
     border-bottom: #60be92 1px solid;
 }
+.border-left-purple {
+    border-left: #c63bff 1px solid;
+}
 
 .text-green {
     color: #60be92;
@@ -62,7 +65,8 @@ body {
 .btn-project:hover {
     cursor: pointer;
     background: #ff3392;
-    transition: background 1s;
+    color: #f8f9fa;
+    transition: background 0.8s;
 }
 /* --- */
 
@@ -122,25 +126,35 @@ nav {
     cursor: pointer;
     position: relative;
     padding: 18px 0 18px 0;
-    margin-top: 5px;
+    border-bottom: 2px solid #6c757d;
+    /* margin-top: 5px; */
     /* border-bottom: 2px solid #f8f9fa; */
+}
+a.bg-light:hover {
+    background: #f8f9fa !important;
 }
 
 .nav-tab.active {
-    margin-bottom: -15px;
+    background: #f8f9fa;
+    border: none;
+    /* margin-bottom: -15px; */
 }
 
 .blue-tab {
-    border-bottom: 2px solid #007bff;
+    /* border-bottom: 2px solid #007bff; */
+    border-bottom: 2px solid #f8f9fa;
 }
 .pink-tab {
-    border-bottom: 2px solid #ff3392;
+    /* border-bottom: 2px solid #ff3392; */
+    border-bottom: 2px solid #f8f9fa;
 }
 .green-tab {
-    border-bottom: 2px solid #60be92;
+    /* border-bottom: 2px solid #60be92; */
+    border-bottom: 2px solid #f8f9fa;
 }
 .purple-tab {
-    border-bottom: 2px solid #c63bff;
+    /* border-bottom: 2px solid #c63bff; */
+    border-bottom: 2px solid #f8f9fa;
 }
 /* --- */
 
@@ -153,15 +167,19 @@ nav {
 }
 
 .blue-bubble {
-    box-shadow: 10px 10px 5px #007bff70;
+    box-shadow: 5px 5px 5px #007bff70;
     border-radius: 20px;
 }
 .pink-bubble {
-    box-shadow: 10px 10px 5px #ff339280;
+    box-shadow: 5px 5px 5px #ff339270;
     border-radius: 20px;
 }
 .green-bubble {
-    box-shadow: 10px 10px 5px #60be9280;
+    box-shadow: 5px 5px 5px #60be9270;
+    border-radius: 20px;
+}
+.purple-bubble {
+    box-shadow: 5px 5px 5px #c63bff70;
     border-radius: 20px;
 }
 

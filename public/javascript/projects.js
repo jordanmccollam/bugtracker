@@ -27,5 +27,17 @@ $(document).ready(function() {
         }).then(redirect);
     });
 
+    $(".delete-issue").on("click", function() {
+        event.preventDefault();
+        var id = $(this).attr("data-id");
+
+        var redirect = window.location.reload();
+
+        $.ajax({
+            url: "/deleteissue/" + id,
+            type: "DELETE",
+        }).then(redirect);
+    });
+
 // END of jQuery
 })

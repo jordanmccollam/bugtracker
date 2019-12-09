@@ -81,4 +81,16 @@ module.exports = function(app, isLoggedIn) {
         });
     });
 
+    app.delete("/deleteissue/:id", function(req, res) {
+        var id = req.params.id;
+
+        // console.log("TRYING TO REMOVE " + id);
+
+        db.Issue.deleteOne({_id: id}).then(function(dbProject) {
+            console.log("REMOVED " + id);
+        }).catch(function(err) {
+            if (err) {console.log(err)};
+        });
+    });
+
 }

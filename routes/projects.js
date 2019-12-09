@@ -24,7 +24,7 @@ module.exports = function(app, isLoggedIn) {
         db.Project.create(req.body).then(function(dbProject) {
             return db.User.findOneAndUpdate(
                 {_id: req.user.id},
-                {projects: dbProject.id},
+                { $push: {projects: dbProject.id}},
                 {new: true}
             );
         }).then(function(dbUser) {

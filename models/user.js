@@ -9,10 +9,10 @@ var UserSchema = new mongoose.Schema({
     password: {
         type: String
     },
-    projects: {
+    projects: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Project"
-    }
+    }]
 });
 
 UserSchema.plugin(passportLocalMongoose);

@@ -72,10 +72,17 @@ module.exports = function(app, isLoggedIn) {
     app.delete("/deleteproject/:id", function(req, res) {
         var id = req.params.id;
 
-        // console.log("TRYING TO REMOVE " + id);
-
         db.Project.deleteOne({_id: id}).then(function(dbProject) {
-            console.log("REMOVED " + id);
+            
+            db.User.findOneAndUpdate(
+                {_id: req.user.id},
+                { $pull: {projects: id}}
+            ).then(function(dbUser) {
+                console.log("REMOVED " + id);
+            }).catch(function(err) {
+                if (err) {console.log(err)}
+            });
+
         }).catch(function(err) {
             if (err) {console.log(err)};
         });
@@ -84,10 +91,17 @@ module.exports = function(app, isLoggedIn) {
     app.delete("/deleteissue/:id", function(req, res) {
         var id = req.params.id;
 
-        // console.log("TRYING TO REMOVE " + id);
+        db.Issue.deleteOne({_id: id}).then(function(dbIssue) {
+            
+            // db.Project.findOneAndDelete(
+            //     {_id: id},
+            //     { $pull: {issues: id}}
+            // ).then(function(dbUser) {
+            //     console.log("REMOVED " + id);
+            // }).catch(function(err) {
+            //     if (err) {console.log(err)}
+            // });
 
-        db.Issue.deleteOne({_id: id}).then(function(dbProject) {
-            console.log("REMOVED " + id);
         }).catch(function(err) {
             if (err) {console.log(err)};
         });

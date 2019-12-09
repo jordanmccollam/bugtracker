@@ -79,14 +79,14 @@
         <div class="col-lg-7 pb-4">
             <h2 class="font-primary text-pink border-bottom-pink pb-2 mb-3">p r o j e c t s <i class="fas fa-project-diagram"></i></h2>
             {{#each projects}}{{#if name}}
-                <div class="btn btn-block btn-project font-secondary">
-                    <div class="row">
-                        <div class="col-sm-6 text-left bigFont">{{name}}</div>
-                        <div class="col-sm-6 text-right">
-                            <i class="fas fa-exclamation"></i>issues: 0 | <i class="fas fa-comments"></i> comments: 0
-                        </div>
+                <a href="/projects/{{_id}}" class="btn btn-block btn-project font-secondary">
+                <div class="row">
+                    <div class="col-sm-6 text-left bigFont">{{name}}</div>
+                    <div class="col-sm-6 text-right">
+                        <i class="fas fa-exclamation"></i>issues: {{issues.length}} | <i class="fas fa-comments"></i> comments: {{comments.length}}
                     </div>
                 </div>
+                </a>
             {{/if}}{{/each}}
         </div>
 

@@ -77,7 +77,7 @@ body {
     cursor: pointer;
     background: #ff3392;
     color: #f8f9fa;
-    transition: background 0.8s;
+    transition: background 0.4s;
 }
 .btn-issue {
     background: #f8f9fa;
@@ -86,7 +86,7 @@ body {
     cursor: pointer;
     background: #a32ed1;
     color: #f8f9fa;
-    transition: background 0.8s;
+    transition: background 0.4s;
 }
 .btn-issue:focus {
     background: #a32ed1;

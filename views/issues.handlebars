@@ -1,0 +1,169 @@
+{{!-- NAVBAR --}}
+<nav class="navbar navbar-expand-lg navbar-light bg-light py-0 font-primary">
+    <div class="container">
+        <a class="navbar-brand bigFont text-primary" href="/">b<img
+                src="https://img.icons8.com/nolan/30/000000/bug.png">g tracker</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                {{#if user}}
+                <li class="nav-item">
+                    <p class="nav-link text-primary"><span class="text-muted font-italic">signed in as &nbsp;</span>
+                        {{user.username}}</p>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">logout</a>
+                </li>
+                {{else}}
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/signup">sign up</a>
+                </li>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+</nav>
+{{!-- Nav tabs --}}
+<div class="container">
+    <div class="row text-secondary">
+        <a class="col-4 nav-tab" href="/dashboard">
+            <div class="shaker"><i class="fas fa-id-card bigFont"></i></div>
+        </a>
+        <a class="col-4 nav-tab active" href="/projects">
+            <div class="shaker"><i class="fas fa-project-diagram bigFont"></i></div>
+        </a>
+        <a class="col-4 nav-tab" href="/comments">
+            <div class="shaker"><i class="fas fa-comments bigFont"></i></div>
+        </a>
+    </div>
+</div>
+
+
+<div class="container mt-4">
+    <div class="row border-bottom-purple">
+        <div class="col-lg-12 d-flex justify-content-between">
+            <div>
+                <h2 class="display-4 font-primary text-light">
+                    <a href="/projects" class="btn-subtle back-btn"><i class="fas fa-long-arrow-alt-left"></i></a>
+                    {{project.name}}
+                    <span class="comment-text-bigger font-secondary d-none d-md-inline">click any issue to see
+                        more</span>
+                </h2>
+            </div>
+            <div>
+                <button class="btn-purple display-4" id="add-issue"><i class="fas fa-plus"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3 font-secondary">
+        <div class="col-12">
+            <div class="btn-group btn-block btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-outline-secondary active">
+                    <input type="radio" name="ideas" autocomplete="off" checked> Ideas
+                </label>
+                <label class="btn btn-outline-secondary">
+                    <input type="radio" name="todo" autocomplete="off"> Todo
+                </label>
+                <label class="btn btn-outline-secondary">
+                    <input type="radio" name="inprogress" autocomplete="off"> In Progress
+                </label>
+                <label class="btn btn-outline-secondary">
+                    <input type="radio" name="closed" autocomplete="off"> Closed
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        {{#each project.issues}}{{#if name}}
+        <div class="col-6">
+            <button class="btn btn-block btn-issue font-secondary">
+                <div class="row">
+                    <div class="col-sm-6 text-left bigFont">{{name}}</div>
+                    <div class="col-sm-6 text-right">
+                        <i class="fas fa-comments"></i> comments: 0 | {{category}}
+                    </div>
+                </div>
+                <div class="row display-active">
+                    <div class="col-12">
+                        <div class="btn-group btn-block btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-sm btn-outline-success active">
+                                <input type="radio" name="ideas" autocomplete="off" checked> Idea
+                            </label>
+                            <label class="btn btn-sm btn-outline-success">
+                                <input type="radio" name="todo" autocomplete="off"> Todo
+                            </label>
+                            <label class="btn btn-sm btn-outline-success">
+                                <input type="radio" name="inprogress" autocomplete="off"> In Progress
+                            </label>
+                            <label class="btn btn-sm btn-outline-success">
+                                <input type="radio" name="closed" autocomplete="off"> Closed
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-12 text-left mt-2">
+                        {{description}}
+                    </div>
+                </div>
+            </button>
+        </div>
+        {{/if}}{{/each}}
+    </div>
+</div>
+
+{{!-- MODAL --}}
+<div class="modal" tabindex="-1" role="dialog" id="add-issue-modal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title font-primary">add issue</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body font-secondary">
+                <form class="font-secondary" action="/addissue/{{project._id}}" method="POST">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" name="name">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="category">Category</label>
+                                    <select class="form-control" name="category">
+                                        <option value="idea">Idea</option>
+                                        <option value="todo">Todo</option>
+                                        <option value="inprogress">Category</option>
+                                        <option value="closed">Closed</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="description">Description</label>
+                                    <textarea class="form-control" name="description" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer font-primary">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
+                <button type="submit" class="btn btn-primary">add <i class="fas fa-plus"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

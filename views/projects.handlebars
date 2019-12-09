@@ -12,7 +12,8 @@
             <ul class="navbar-nav ml-auto">
                 {{#if user}}
                 <li class="nav-item">
-                    <p class="nav-link text-primary"><span class="text-muted font-italic">signed in as &nbsp;</span> {{user.username}}</p>
+                    <p class="nav-link text-primary"><span class="text-muted font-italic">signed in as &nbsp;</span>
+                        {{user.username}}</p>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">logout</a>
@@ -62,44 +63,44 @@
 
     {{#each projects}}
     {{#if name}}
-        <div class="row mt-3">
-            <div class="col-lg-6 font-secondary">
-                <div class="btn btn-block btn-project font-secondary">
-                    <div class="row">
-                        <div class="col-sm-6 text-left bigFont">{{name}}</div>
-                        <div class="col-sm-6 text-right">
-                            <i class="fas fa-exclamation"></i>issues: 0 | <i class="fas fa-comments"></i> comments: 0
-                        </div>
+    <div class="row mt-3">
+        <div class="col-lg-6 font-secondary">
+            <a href="/projects/{{_id}}" class="btn btn-block btn-project font-secondary">
+                <div class="row">
+                    <div class="col-sm-6 text-left bigFont">{{name}}</div>
+                    <div class="col-sm-6 text-right">
+                        <i class="fas fa-exclamation"></i>issues: 0 | <i class="fas fa-comments"></i> comments: 0
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
+    </div>
     {{/if}}
     {{/each}}
 </div>
 
 {{!-- MODAL --}}
 <div class="modal" tabindex="-1" role="dialog" id="add-project-modal">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title font-primary">add project</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form class="font-secondary" action="/addproject" method="POST">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" name="name">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title font-primary">add project</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-      </div>
-      <div class="modal-footer font-primary">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
-        <button type="submit" class="btn btn-primary">add <i class="fas fa-plus"></i></button>
-        </form>
-      </div>
+            <div class="modal-body">
+                <form class="font-secondary" action="/addproject" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" name="name">
+                    </div>
+            </div>
+            <div class="modal-footer font-primary">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
+                <button type="submit" class="btn btn-primary">add <i class="fas fa-plus"></i></button>
+                </form>
+            </div>
+        </div>
     </div>
-  </div>
 </div>

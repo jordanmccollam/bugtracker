@@ -26,6 +26,9 @@ body {
 .border-left-purple {
     border-left: #c63bff 1px solid;
 }
+.border-bottom-purple {
+    border-bottom: #c63bff 1px solid;
+}
 
 .text-green {
     color: #60be92;
@@ -58,6 +61,14 @@ body {
 .btn-pink:hover {
     color: #c2246e;
 }
+.btn-purple {
+    background: none;
+    color: #c63bff;
+    border: none;
+}
+.btn-purple:hover {
+    color: #a32ed1;
+}
 
 .btn-project {
     background: #f8f9fa;
@@ -68,11 +79,34 @@ body {
     color: #f8f9fa;
     transition: background 0.8s;
 }
+.btn-issue {
+    background: #f8f9fa;
+}
+.btn-issue:hover {
+    cursor: pointer;
+    background: #a32ed1;
+    color: #f8f9fa;
+    transition: background 0.8s;
+}
+.btn-issue:focus {
+    background: #a32ed1;
+    color: #f8f9fa;
+}
+.btn-issue:focus > .display-active {
+    display: block;
+}
+
+.display-active {
+    display: none;
+}
 /* --- */
 
 /* FONTS */
 .comment-text {
     font-size: 14px;
+}
+.comment-text-bigger {
+    font-size: 16px;
 }
 
 .font-primary {
@@ -251,3 +285,10 @@ a.bg-light:hover {
 
 }
 /* --- */
+.back-btn {
+    color: #f8f9fa;
+}
+.back-btn:hover {
+    color: #a32ed1;
+    transition: 0.4s;
+}

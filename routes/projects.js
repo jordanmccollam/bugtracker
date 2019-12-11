@@ -24,7 +24,7 @@ module.exports = function(app, isLoggedIn) {
         var id = req.params.id;
 
         db.Project.findOne({_id: id}).populate("issues").then(function(dbProject) {
-            console.log(dbProject);
+            // console.log(dbProject);
 
             res.render("issues", data = {
                 user: req.user,
@@ -110,4 +110,13 @@ module.exports = function(app, isLoggedIn) {
         });
     });
 
+    // UPDATE ---
+    app.put("/update/:id", function(req, res) {
+        var id = req.params.id;
+
+        db.Issue.updateOne({_id: id}, {category: req.body.category})
+        .then(function(dbIssue){}).catch(function(err) {
+            console.log(err);
+        });
+    });
 }

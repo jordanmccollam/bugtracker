@@ -65,24 +65,27 @@
 
     <div class="row mt-3 font-secondary">
         <div class="col-12">
-            <div class="btn-group btn-block btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-outline-secondary active">
-                    <input type="radio" name="ideas" autocomplete="off" checked> Ideas
+            <div class="btn-group btn-block btn-group-toggle" data-toggle="buttons" id="display-category">
+                <label class="btn btn-outline-secondary display-category active">
+                    <input type="radio" name="ideas" autocomplete="off" value="all" checked> All
                 </label>
-                <label class="btn btn-outline-secondary">
-                    <input type="radio" name="todo" autocomplete="off"> Todo
+                <label class="btn btn-outline-secondary display-category">
+                    <input type="radio" name="ideas" autocomplete="off" value="idea"> Ideas
                 </label>
-                <label class="btn btn-outline-secondary">
-                    <input type="radio" name="inprogress" autocomplete="off"> In Progress
+                <label class="btn btn-outline-secondary display-category">
+                    <input type="radio" name="todo" autocomplete="off" value="todo"> Todo
                 </label>
-                <label class="btn btn-outline-secondary">
-                    <input type="radio" name="closed" autocomplete="off"> Closed
+                <label class="btn btn-outline-secondary display-category">
+                    <input type="radio" name="inprogress" autocomplete="off" value="inprogress"> In Progress
+                </label>
+                <label class="btn btn-outline-secondary display-category">
+                    <input type="radio" name="closed" autocomplete="off" value="closed"> Closed
                 </label>
             </div>
         </div>
     </div>
 
-    <div class="row mt-3">
+    <div class="row mt-3" id="issues-container">
         {{#each project.issues}}
         <div class="col-lg-6 mt-3">
             <button class="btn btn-block btn-issue font-secondary findCategory" active-category="{{category}}">
@@ -95,17 +98,17 @@
                 <div class="row display-active">
                     <div class="col-12">
                         <div class="btn-group btn-block btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-sm btn-success idea">
-                                <input type="radio" name="ideas" autocomplete="off" checked> Idea
+                            <label class="btn btn-sm btn-success idea issue-category" category="idea" data-id="{{_id}}">
+                                <input type="radio" name="ideas" value="idea" autocomplete="off" checked> Idea
                             </label>
-                            <label class="btn btn-sm btn-success todo">
-                                <input type="radio" name="todo" autocomplete="off"> Todo
+                            <label class="btn btn-sm btn-success todo issue-category" category="todo" data-id="{{_id}}">
+                                <input type="radio" name="todo" value="todo" autocomplete="off"> Todo
                             </label>
-                            <label class="btn btn-sm btn-success inprogress">
-                                <input type="radio" name="inprogress" autocomplete="off"> In Progress
+                            <label class="btn btn-sm btn-success inprogress issue-category" category="inprogress" data-id="{{_id}}">
+                                <input type="radio" name="inprogress" value="inprogress" autocomplete="off"> In Progress
                             </label>
-                            <label class="btn btn-sm btn-success closed">
-                                <input type="radio" name="closed" autocomplete="off"> Closed
+                            <label class="btn btn-sm btn-success closed issue-category" category="closed" data-id="{{_id}}">
+                                <input type="radio" name="closed" value="closed" autocomplete="off"> Closed
                             </label>
                         </div>
                     </div>
@@ -154,7 +157,7 @@
                                     <select class="form-control" name="category">
                                         <option value="idea">Idea</option>
                                         <option value="todo">Todo</option>
-                                        <option value="inprogress">Category</option>
+                                        <option value="inprogress">In Progress</option>
                                         <option value="closed">Closed</option>
                                     </select>
                                 </div>

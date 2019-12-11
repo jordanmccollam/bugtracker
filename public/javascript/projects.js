@@ -39,5 +39,48 @@ $(document).ready(function() {
         }).then(redirect);
     });
 
+    $(".issue-category").on("click", function() {
+        var category = $(this).attr("category");
+        var id = $(this).attr("data-id");
+        var redirect = window.location.reload();
+
+        $.ajax({
+            url: "/update/" + id,
+            type: "PUT",
+            data: {
+                category: category
+            }
+        }).then(redirect);
+    });
+
+    // Category displays
+    // $(".display-category").on("click", function() {
+    //     var displayCategory = $(".display-category.active").find("input").val();
+    //     console.log(displayCategory);
+    // })
+
+    const categoryBar = $("#display-category");
+    $(categoryBar).on("click", function() {
+        setTimeout(changeCategory, 100);
+    })
+
+    function changeCategory() {
+        var displayCategory = $(".display-category.active").find("input").val();
+        var issues = $(".btn-issue")
+        Array.from(issues).forEach(function(issue) {
+            var value = $(issue).attr("active-category");
+            $(issue).parent().show();
+            if (displayCategory === "all") {
+                $(issue).parent().show();
+                return;
+            }
+            if (value !== displayCategory) {
+                $(issue).parent().hide();
+            }
+        })
+    }
+
+
+
 // END of jQuery
 })

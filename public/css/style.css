@@ -92,6 +92,7 @@ body {
     background: #a32ed1;
     color: #f8f9fa;
 }
+
 @media only screen and (min-width: 1200px) {
     .btn-issue:focus > .display-active {
         display: block;

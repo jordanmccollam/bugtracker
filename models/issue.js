@@ -11,7 +11,11 @@ var IssueSchema = new mongoose.Schema({
     },
     description: {
         type: String
-    }
+    },
+    comments: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Comment"
+    }]
 });
 
 module.exports = mongoose.model("Issue", IssueSchema);

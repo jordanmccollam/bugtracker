@@ -53,12 +53,6 @@ $(document).ready(function() {
         }).then(redirect);
     });
 
-    // Category displays
-    // $(".display-category").on("click", function() {
-    //     var displayCategory = $(".display-category.active").find("input").val();
-    //     console.log(displayCategory);
-    // })
-
     const categoryBar = $("#display-category");
     $(categoryBar).on("click", function() {
         setTimeout(changeCategory, 100);
@@ -79,6 +73,14 @@ $(document).ready(function() {
             }
         })
     }
+
+    // $(".comment").hide();
+    // $(".btn-issue").on("click", function() {
+    //     var id = $(this).attr("data-id");
+    //     $("#comment-" + id).show();
+    // });
+
+
 
 
 

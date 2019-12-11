@@ -46,7 +46,7 @@
 </div>
 
 
-<div class="container mt-4">
+<div class="container mt-4 pb-5">
     <div class="row border-bottom-purple">
         <div class="col-lg-12 d-flex justify-content-between">
             <div>
@@ -86,47 +86,87 @@
     </div>
 
     <div class="row mt-3" id="issues-container">
-        {{#each project.issues}}
-        <div class="col-lg-6 mt-3">
-            <button class="btn btn-block btn-issue font-secondary findCategory" active-category="{{category}}">
-                <div class="row">
-                    <div class="col-sm-6 text-left bigFont">{{name}}</div>
-                    <div class="col-sm-6 text-right">
-                        <i class="fas fa-comments"></i> comments: 0 | {{category}}
-                    </div>
-                </div>
-                <div class="row display-active">
-                    <div class="col-12">
-                        <div class="btn-group btn-block btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-sm btn-success idea issue-category" category="idea" data-id="{{_id}}">
-                                <input type="radio" name="ideas" value="idea" autocomplete="off" checked> Idea
-                            </label>
-                            <label class="btn btn-sm btn-success todo issue-category" category="todo" data-id="{{_id}}">
-                                <input type="radio" name="todo" value="todo" autocomplete="off"> Todo
-                            </label>
-                            <label class="btn btn-sm btn-success inprogress issue-category" category="inprogress" data-id="{{_id}}">
-                                <input type="radio" name="inprogress" value="inprogress" autocomplete="off"> In Progress
-                            </label>
-                            <label class="btn btn-sm btn-success closed issue-category" category="closed" data-id="{{_id}}">
-                                <input type="radio" name="closed" value="closed" autocomplete="off"> Closed
-                            </label>
+        <div class="col-lg-8">
+            {{!-- ISSUES --}}
+            {{#each project.issues}}
+            <div class="col-12 mt-3">
+                <button class="btn btn-block btn-issue font-secondary findCategory" active-category="{{category}}" data-id="{{_id}}" data-name="{{name}}" >
+                    <div class="row">
+                        <div class="col-sm-6 text-left bigFont">{{name}}</div>
+                        <div class="col-sm-6 text-right">
+                            <i class="fas fa-comments"></i> comments: 0 | {{category}}
                         </div>
                     </div>
-                    <div class="col-12 text-left mt-2">
-                        {{description}}
+                    <div class="row display-active">
+                        <div class="col-12">
+                            <div class="btn-group btn-block btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-sm btn-success idea issue-category" category="idea"
+                                    data-id="{{_id}}">
+                                    <input type="radio" name="ideas" value="idea" autocomplete="off" checked> Idea
+                                </label>
+                                <label class="btn btn-sm btn-success todo issue-category" category="todo"
+                                    data-id="{{_id}}">
+                                    <input type="radio" name="todo" value="todo" autocomplete="off"> Todo
+                                </label>
+                                <label class="btn btn-sm btn-success inprogress issue-category" category="inprogress"
+                                    data-id="{{_id}}">
+                                    <input type="radio" name="inprogress" value="inprogress" autocomplete="off"> In
+                                    Progress
+                                </label>
+                                <label class="btn btn-sm btn-success closed issue-category" category="closed"
+                                    data-id="{{_id}}">
+                                    <input type="radio" name="closed" value="closed" autocomplete="off"> Closed
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-12 text-left mt-2">
+                            {{description}}
+                        </div>
+                        <div class="col-12 text-right">
+                            <div class="btn btn-danger btn-sm delete-issue" data-id="{{_id}}"><i
+                                    class="fas fa-trash-alt"></i></div>
+                        </div>
                     </div>
-                    <div class="col-12 text-right">
-                        <div class="btn btn-danger btn-sm delete-issue" data-id="{{_id}}"><i class="fas fa-trash-alt"></i></div>
-                    </div>
-                </div>
-            </button>
+                </button>
+            </div>
+            {{/each}}
         </div>
-        {{/each}}
+
+        {{!-- <div class="col-lg-4 font-secondary"> --}}
+            {{!-- COMMENTS --}}
+            {{!-- {{#each project.issues}}
+            <div class="col-12 mt-3 text-light comment" id="comment-{{_id}}">
+                <h3 class="text-center border-bottom border-light pb-2">{{name}} <i class="fas fa-comments"></i></h3>
+                <div class="comments-section border-bottom border-light">
+                    {{#if comments}}
+                    {{#each comments}}
+                        <p><span class="text-purple"><i class="fas fa-comment"></i> </span> {{_id}}</p>
+                    {{/each}}
+                    {{else}}
+                        <h5 class="text-secondary text-center py-3">No Comments Yet</h5>
+                    {{/if}}
+                </div>
+                <form class="mt-2" action="/newcomment/{{_id}}" method="POST">
+                    <div class="row">
+                        <div class="col-10">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="new comment" name="comment">
+                            </div>
+                        </div>
+                        <div class="col-2 pl-0">
+                            <button type="submit" class="btn btn-success"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            {{/each}}
+        </div> --}}
     </div>
 
     <div class="row mt-5">
         <div class="col-12 text-right font-secondary">
-            <button class="btn btn-outline-danger delete-project" data-id="{{project._id}}">Delete Project <i class="fas fa-trash-alt"></i></button>
+            <button class="btn btn-outline-danger delete-project" data-id="{{project._id}}">Delete Project <i
+                    class="fas fa-trash-alt"></i></button>
         </div>
     </div>
 </div>

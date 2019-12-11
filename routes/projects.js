@@ -54,7 +54,7 @@ module.exports = function(app, isLoggedIn) {
     });
 
     app.post("/addissue/:id", function(req, res) {
-        var id = req.params.id
+        var id = req.params.id;
 
         db.Issue.create(req.body).then(function(dbIssue) {
             issue = dbIssue;
@@ -69,6 +69,24 @@ module.exports = function(app, isLoggedIn) {
             res.redirect("/projects");
         });
     });
+
+    // new comment
+    // app.post("/newcomment/:issueID", function(req, res) {
+    //     var issueID = req.params.id;
+
+    //     db.Comment.create(req.body).then(function(dbComment) {
+    //         console.log(dbComment._id + " *****************************");
+    //         return db.Issue.findOneAndUpdate(
+    //             {_id: issueID},
+    //             { $push: {comments: dbComment.id}},
+    //             {new: true}
+    //         );
+    //     }).then(function(dbIssue) {
+    //         res.redirect("/projects");
+    //     }).catch(function(err) {
+    //         if (err) {console.log(err)};
+    //     });
+    // });
 
     // DELETE ---
     app.delete("/delete/:id", function(req, res) {

@@ -94,7 +94,7 @@
                     <div class="row">
                         <div class="col-sm-6 text-left bigFont">{{name}}</div>
                         <div class="col-sm-6 text-right">
-                            <i class="fas fa-comments"></i> comments: 0 | {{category}}
+                            <i class="fas fa-comments"></i> comments: {{comments.length}} | {{category}}
                         </div>
                     </div>
                     <div class="row display-active">
@@ -132,15 +132,24 @@
             {{/each}}
         </div>
 
-        {{!-- <div class="col-lg-4 font-secondary"> --}}
+        <div class="col-lg-4 font-secondary">
             {{!-- COMMENTS --}}
-            {{!-- {{#each project.issues}}
+            {{#each project.issues}}
             <div class="col-12 mt-3 text-light comment" id="comment-{{_id}}">
                 <h3 class="text-center border-bottom border-light pb-2">{{name}} <i class="fas fa-comments"></i></h3>
                 <div class="comments-section border-bottom border-light">
                     {{#if comments}}
                     {{#each comments}}
-                        <p><span class="text-purple"><i class="fas fa-comment"></i> </span> {{_id}}</p>
+                    <div class="row">
+                        <div class="col-1">
+                            <div class="text-purple"><i class="fas fa-comment"></i></div>
+                        </div>
+                        <div class="col-10">
+                            <p id="{{_id}}"></p>
+                        </div>
+                            <button class="btn-subtle text-danger delete-comment" data-id="{{_id}}">X</button>
+                    </div>
+                        {{!-- <p class="comment-text-bigger" id="{{_id}}"><span class="text-purple"><i class="fas fa-comment"></i> &nbsp;</span> </p> --}}
                     {{/each}}
                     {{else}}
                         <h5 class="text-secondary text-center py-3">No Comments Yet</h5>
@@ -160,7 +169,7 @@
                 </form>
             </div>
             {{/each}}
-        </div> --}}
+        </div>
     </div>
 
     <div class="row mt-5">

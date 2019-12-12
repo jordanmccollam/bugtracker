@@ -24,7 +24,6 @@ module.exports = function(app, isLoggedIn) {
         var id = req.params.id;
 
         db.Project.findOne({_id: id}).populate("issues").then(function(dbProject) {
-            // console.log(dbProject);
 
             res.render("issues", data = {
                 user: req.user,
@@ -71,22 +70,33 @@ module.exports = function(app, isLoggedIn) {
     });
 
     // new comment
-    // app.post("/newcomment/:issueID", function(req, res) {
-    //     var issueID = req.params.id;
+    app.post("/newcomment/:issueID", function(req, res) {
+        var issueID = req.params.issueID;
 
-    //     db.Comment.create(req.body).then(function(dbComment) {
-    //         console.log(dbComment._id + " *****************************");
-    //         return db.Issue.findOneAndUpdate(
-    //             {_id: issueID},
-    //             { $push: {comments: dbComment.id}},
-    //             {new: true}
-    //         );
-    //     }).then(function(dbIssue) {
-    //         res.redirect("/projects");
-    //     }).catch(function(err) {
-    //         if (err) {console.log(err)};
-    //     });
-    // });
+        db.Comment.create(req.body).then(function(dbComment) {
+            return db.Issue.findOneAndUpdate(
+                {_id: issueID},
+                { $push: {comments: dbComment.id}},
+                {new: true}
+            );
+        }).then(function(dbIssue) {
+            res.redirect("back");
+        }).catch(function(err) {
+            if (err) {console.log(err)};
+        });
+    });
+
+    app.get("/comment/:id", function(req, res) {
+        var id = req.params.id;
+
+        db.Issue.findOne({_id: id}).populate("comments").then(function(dbIssue) {
+            res.json({
+                comments: dbIssue.comments
+            });
+        }).catch(function(err) {
+            if (err) {console.log(err)};
+        });
+    });
 
     // DELETE ---
     app.delete("/delete/:id", function(req, res) {

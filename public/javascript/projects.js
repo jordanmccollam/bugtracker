@@ -74,15 +74,23 @@ $(document).ready(function() {
         })
     }
 
-    // $(".comment").hide();
-    // $(".btn-issue").on("click", function() {
-    //     var id = $(this).attr("data-id");
-    //     $("#comment-" + id).show();
-    // });
+    $(".comment").hide();
+    $(".btn-issue").on("click", function() {
+        $(".comment").hide();
+        var id = $(this).attr("data-id");
+        // var commentID = $(".comment-text").attr("comment-id");
+        $("#comment-" + id).show();
 
+        var comments = [];
 
+        $.getJSON("/comment/" + id, function(data) {
+            for (var i = 0; i < data.comments.length; i++) {
+                $("#" + data.comments[i]._id).html(data.comments[i].comment);
+            }
+        });
+    });
 
-
+    // $(".delete-comment").on("click")
 
 // END of jQuery
 })

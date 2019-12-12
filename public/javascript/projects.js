@@ -113,5 +113,16 @@ $(document).ready(function() {
         $(".issues-count").removeClass("d-none");
     }
 
+    countComments();
+    function countComments() {
+        var commentsArr = $(".comments-count").html().split("");
+        var commentsCount = 0;
+        for (var i = 0; i < commentsArr.length; i++) {
+            commentsCount += parseInt(commentsArr[i]);
+        }
+        $(".comments-count").html(commentsCount);
+        $(".comments-count").removeClass("d-none");
+    }
+
 // END of jQuery
 })

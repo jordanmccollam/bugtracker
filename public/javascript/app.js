@@ -18,8 +18,8 @@ $(document).ready(function() {
             </div>
         `);
 
-        $("#no-comments-yet").hide();
-        $("#new-comment-comment").val("");
+        $("#no-comments-yet-" + data.issueID).hide();
+        $(".new-comment-comment").val("");
         $("#comment-section-" + data.issueID).append(newComment);
     });
 
@@ -30,11 +30,11 @@ $(document).ready(function() {
 
     // Socket Emits *******************************************************
     // New comment
-    $("#new-comment-form").submit(function() {
+    $(".new-comment-form").submit(function() {
         event.preventDefault();
-        var comment = $("#new-comment-comment").val();
-        var issueID = $("#new-comment-form").attr("for-issue");
-        var username = $("#new-comment-form").attr("from-user");
+        var comment = $(this).find(".new-comment-comment").val();
+        var issueID = $(this).attr("for-issue");
+        var username = $(this).attr("from-user");
 
         var data = {
             comment: comment,

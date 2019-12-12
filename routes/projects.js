@@ -75,14 +75,17 @@ module.exports = function(app, isLoggedIn) {
                 {_id: issueID},
                 { $push: {comments: dbComment.id}},
                 {new: true}
-            );
+            )
         }).then(function(dbIssue) {
+
             res.redirect("back");
+            
         }).catch(function(err) {
             if (err) {console.log(err)};
         });
     });
 
+    // JSON request
     app.get("/comment/:id", function(req, res) {
         var id = req.params.id;
 

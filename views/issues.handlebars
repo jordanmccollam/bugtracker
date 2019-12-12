@@ -140,16 +140,15 @@
                 <div class="comments-section border-bottom border-light">
                     {{#if comments}}
                     {{#each comments}}
-                    <div class="row">
-                        <div class="col-1">
-                            <div class="text-purple"><i class="fas fa-comment"></i></div>
+                        <div class="row">
+                            <div class="col-1">
+                                <div class="text-purple"><i class="fas fa-comment"></i></div>
+                            </div>
+                            <div class="col-10">
+                                <p id="{{_id}}"></p>
+                            </div>
+                            <button class="btn-subtle text-danger delete-comment" comment-id="{{_id}}" issue-id="{{../_id}}">X</button>
                         </div>
-                        <div class="col-10">
-                            <p id="{{_id}}"></p>
-                        </div>
-                        <button class="btn-subtle text-danger delete-comment" comment-id="{{_id}}" issue-id="{{../_id}}">X</button>
-                    </div>
-                        {{!-- <p class="comment-text-bigger" id="{{_id}}"><span class="text-purple"><i class="fas fa-comment"></i> &nbsp;</span> </p> --}}
                     {{/each}}
                     {{else}}
                         <h5 class="text-secondary text-center py-3">No Comments Yet</h5>

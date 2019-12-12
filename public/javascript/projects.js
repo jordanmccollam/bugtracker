@@ -96,13 +96,13 @@ $(document).ready(function() {
         var issueID = $(this).attr("issue-id");
         var redirect = window.location.reload();
 
-        // alert(commentID);
-        // alert(issueID);
         $.ajax({
             url: "/deletecomment/" + issueID + "/" + commentID,
             type: "DELETE"
         }).then(redirect);
     });
+
+    
 
 // END of jQuery
 })

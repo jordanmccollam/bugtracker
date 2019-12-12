@@ -8,10 +8,13 @@ var db = require("./models");
 var LocalStrategy = require("passport-local");
 var passportLocalMongoose = require("passport-local-mongoose");
 
+// Server
+var app = express();
+var http = require("http").createServer(app);
+var io = require("socket.io")(http);
 var PORT = process.env.PORT || 3000;
 
 // Handlebars Config
-var app = express();
 app.engine("handlebars", handlebars());
 app.set("view engine", "handlebars");
 // Parse request body as JSON
@@ -40,6 +43,7 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/bugtracker";
 mongoose.connect(MONGODB_URI);
 
 // Routes ***
+require("./routes/socket")(app, io);
 require("./routes/index")(app);
 require("./routes/dashboard")(app, isLoggedIn);
 require("./routes/projects")(app, isLoggedIn);
@@ -80,7 +84,7 @@ function isLoggedIn(req, res, next) {
 // ***
 
 // Listener
-app.listen(PORT, function() {
+http.listen(PORT, function() {
     console.log(
         "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
         PORT,

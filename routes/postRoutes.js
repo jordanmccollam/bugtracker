@@ -70,28 +70,28 @@ module.exports = function (app) {
     });
 
     // new comment
-    app.post("/newcomment/:issueID", function (req, res) {
-        var issueID = req.params.issueID;
+    // app.post("/newcomment/:issueID", function (req, res) {
+    //     var issueID = req.params.issueID;
 
-        db.Comment.create(req.body).then(function (dbComment) {
-            return db.Issue.findOneAndUpdate({
-                _id: issueID
-            }, {
-                $push: {
-                    comments: dbComment.id
-                }
-            }, {
-                new: true
-            })
-        }).then(function (dbIssue) {
+    //     db.Comment.create(req.body).then(function (dbComment) {
+    //         return db.Issue.findOneAndUpdate({
+    //             _id: issueID
+    //         }, {
+    //             $push: {
+    //                 comments: dbComment.id
+    //             }
+    //         }, {
+    //             new: true
+    //         })
+    //     }).then(function (dbIssue) {
 
-            res.redirect("back");
+    //         res.redirect("back");
 
-        }).catch(function (err) {
-            if (err) {
-                console.log(err)
-            };
-        });
-    });
+    //     }).catch(function (err) {
+    //         if (err) {
+    //             console.log(err)
+    //         };
+    //     });
+    // });
 
 }

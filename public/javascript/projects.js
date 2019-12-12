@@ -90,17 +90,17 @@ $(document).ready(function() {
         });
     });
 
-    $(".delete-comment").on("click", function() {
-        event.preventDefault();
-        var commentID = $(this).attr("comment-id");
-        var issueID = $(this).attr("issue-id");
-        var redirect = window.location.reload();
+    // $(".delete-comment").on("click", function() {
+    //     event.preventDefault();
+    //     var commentID = $(this).attr("comment-id");
+    //     var issueID = $(this).attr("issue-id");
+    //     var redirect = window.location.reload();
 
-        $.ajax({
-            url: "/deletecomment/" + issueID + "/" + commentID,
-            type: "DELETE"
-        }).then(redirect);
-    });
+    //     $.ajax({
+    //         url: "/deletecomment/" + issueID + "/" + commentID,
+    //         type: "DELETE"
+    //     }).then(redirect);
+    // });
 
     countIssues();
     function countIssues() {

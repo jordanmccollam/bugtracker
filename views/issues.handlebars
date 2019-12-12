@@ -137,28 +137,28 @@
             {{#each project.issues}}
             <div class="col-12 mt-3 text-light comment" id="comment-{{_id}}">
                 <h3 class="text-center border-bottom border-light pb-2">{{name}} <i class="fas fa-comments"></i></h3>
-                <div class="comments-section border-bottom border-light">
+                <div class="comments-section border-bottom border-light" id="comment-section-{{_id}}">
                     {{#if comments}}
                     {{#each comments}}
-                        <div class="row">
-                            <div class="col-1">
-                                <div class="text-purple"><i class="fas fa-comment"></i></div>
-                            </div>
+                        <div class="row" id="comment-to-delete-{{_id}}">
                             <div class="col-10">
-                                <p id="{{_id}}"></p>
+                                <span class="text-purple font-italic">{{../../user.username}}: </span>
+                                <span id="{{_id}}"> </span>
                             </div>
-                            <button class="btn-subtle text-danger delete-comment" comment-id="{{_id}}" issue-id="{{../_id}}">X</button>
+                            <div class="col-2">
+                                <button class="btn-subtle text-danger delete-comment" comment-id="{{_id}}" issue-id="{{../_id}}">X</button>
+                            </div>
                         </div>
                     {{/each}}
                     {{else}}
-                        <h5 class="text-secondary text-center py-3">No Comments Yet</h5>
+                        <h5 class="text-secondary text-center py-3" id="no-comments-yet">No Comments Yet</h5>
                     {{/if}}
                 </div>
-                <form class="mt-2" action="/newcomment/{{_id}}" method="POST">
+                <form class="mt-2" id="new-comment-form" for-issue="{{_id}}" from-user="{{../user.username}}">
                     <div class="row">
                         <div class="col-10">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="new comment" name="comment">
+                                <input type="text" class="form-control" placeholder="new comment" name="comment" id="new-comment-comment">
                             </div>
                         </div>
                         <div class="col-2 pl-0">

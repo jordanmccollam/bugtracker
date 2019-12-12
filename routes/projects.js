@@ -85,25 +85,25 @@ module.exports = function(app, isLoggedIn) {
         });
     });
 
-    app.delete("/deletecomment/:issueID/:commentID", function(req, res) {
-        var issueID = req.params.issueID;
-        var commentID = req.params.commentID;
+    // app.delete("/deletecomment/:issueID/:commentID", function(req, res) {
+    //     var issueID = req.params.issueID;
+    //     var commentID = req.params.commentID;
 
-        db.Comment.deleteOne({_id: commentID}).then(function(dbComment) {
+    //     db.Comment.deleteOne({_id: commentID}).then(function(dbComment) {
             
-            db.Issue.findOneAndUpdate(
-                {_id: issueID},
-                { $pull: {comments: commentID}}
-            ).then(function(dbIssue) {
-                console.log("REMOVED " + id);
-            }).catch(function(err) {
-                if (err) {console.log(err)}
-            });
+    //         db.Issue.findOneAndUpdate(
+    //             {_id: issueID},
+    //             { $pull: {comments: commentID}}
+    //         ).then(function(dbIssue) {
+    //             console.log("REMOVED " + id);
+    //         }).catch(function(err) {
+    //             if (err) {console.log(err)}
+    //         });
 
-        }).catch(function(err) {
-            if (err) {console.log(err)};
-        });
-    });
+    //     }).catch(function(err) {
+    //         if (err) {console.log(err)};
+    //     });
+    // });
 
     // UPDATE ---
     app.put("/update/:id", function(req, res) {

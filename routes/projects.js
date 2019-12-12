@@ -5,9 +5,6 @@ module.exports = function(app, isLoggedIn) {
     app.get("/projects", isLoggedIn, function(req, res) {
 
         db.User.findOne({_id: req.user.id}).populate("projects").then(function(dbUser) {
-            // TODO in projects.handlebars I'm using an additional if statement.
-            // It seems handlebars thinks that var project is the entire user or something
-            // this should be fixed for optimization 
 
             var projects = dbUser.projects;
 
@@ -128,6 +125,26 @@ module.exports = function(app, isLoggedIn) {
                 {_id: projectID},
                 { $pull: {issues: issueID}}
             ).then(function(dbUser) {
+                console.log("REMOVED " + id);
+            }).catch(function(err) {
+                if (err) {console.log(err)}
+            });
+
+        }).catch(function(err) {
+            if (err) {console.log(err)};
+        });
+    });
+
+    app.delete("/deletecomment/:issueID/:commentID", function(req, res) {
+        var issueID = req.params.issueID;
+        var commentID = req.params.commentID;
+
+        db.Comment.deleteOne({_id: commentID}).then(function(dbComment) {
+            
+            db.Issue.findOneAndUpdate(
+                {_id: issueID},
+                { $pull: {comments: commentID}}
+            ).then(function(dbIssue) {
                 console.log("REMOVED " + id);
             }).catch(function(err) {
                 if (err) {console.log(err)}

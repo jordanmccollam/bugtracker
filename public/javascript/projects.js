@@ -90,7 +90,19 @@ $(document).ready(function() {
         });
     });
 
-    // $(".delete-comment").on("click")
+    $(".delete-comment").on("click", function() {
+        event.preventDefault();
+        var commentID = $(this).attr("comment-id");
+        var issueID = $(this).attr("issue-id");
+        var redirect = window.location.reload();
+
+        // alert(commentID);
+        // alert(issueID);
+        $.ajax({
+            url: "/deletecomment/" + issueID + "/" + commentID,
+            type: "DELETE"
+        }).then(redirect);
+    });
 
 // END of jQuery
 })

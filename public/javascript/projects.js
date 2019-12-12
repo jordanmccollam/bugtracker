@@ -102,7 +102,16 @@ $(document).ready(function() {
         }).then(redirect);
     });
 
-    
+    countIssues();
+    function countIssues() {
+        var issuesArr = $(".issues-count").html().split("");
+        var issuesCount = 0
+        for (var i = 0; i < issuesArr.length; i++) {
+            issuesCount += parseInt(issuesArr[i]);
+        }
+        $(".issues-count").html(issuesCount);
+        $(".issues-count").removeClass("d-none");
+    }
 
 // END of jQuery
 })

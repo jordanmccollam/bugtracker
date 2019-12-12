@@ -12,14 +12,6 @@ var UserSchema = new mongoose.Schema({
     projects: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Project"
-    }],
-    issues: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Issue"
-    }],
-    comments: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Comment"
     }]
 });
 

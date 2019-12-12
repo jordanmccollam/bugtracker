@@ -19,7 +19,7 @@ $(document).ready(function() {
         event.preventDefault();
         var id = $(this).attr("data-id");
 
-        var redirect = window.location.href = "/projects";
+        var redirect = window.location.href = "/dashboard";
 
         $.ajax({
             url: "/delete/" + id,

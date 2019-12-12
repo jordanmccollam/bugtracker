@@ -68,7 +68,7 @@
                 <div class="row">
                     <div class="col-sm-6 text-left bigFont">{{name}}</div>
                     <div class="col-sm-6 text-right">
-                        <i class="fas fa-exclamation"></i>issues: {{issues.length}} | <i class="fas fa-comments"></i> comments: {{issues.comments.length}}
+                        <i class="fas fa-exclamation"></i>issues: {{issues.length}} | <i class="fas fa-comments"></i> comments: {{#each issue}}{{comments.length}}{{/each}}
                     </div>
                 </div>
             </a>

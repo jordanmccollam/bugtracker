@@ -43,6 +43,7 @@ mongoose.connect(MONGODB_URI);
 require("./routes/index")(app);
 require("./routes/dashboard")(app, isLoggedIn);
 require("./routes/projects")(app, isLoggedIn);
+require("./routes/postRoutes")(app)
 require("./routes/auth")(app);
 
 // Auth routes ***

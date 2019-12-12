@@ -66,7 +66,7 @@
                     <div class="col-4">
                         <h5>issues</h5>
                         <h5 class="display-4"><i class="fas fa-hashtag d-none d-sm-inline"></i> 
-                            ?
+                            
                         </h5>
                     </div>
                     <div class="col-4">
@@ -113,19 +113,21 @@
         {{!-- <div class="col-lg-1"></div> --}}
 
         <div class="col-lg-5 border-left border-primary mt-5 mt-lg-0">
-            <h2 class="font-primary text-primary text-center">comments</h2>
-            {{#if comments}}
+            <h2 class="font-primary text-primary text-center">comments </h2>
+            {{#each projects}}
+            {{#each issues}}
+            {{#each comments}}
             <div class="row text-light justify-content-center mb-3">
                 <div class="col-11 border-top">
-                    <span class="text-primary font-secondary">{{name}} ({{name}}):</span>
-                    <span class="comment-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam commodi
-                        adipisci odio delectus officia aspernatur ullam illum quis. Mollitia nostrum architecto modi
-                        distinctio dolorum error quae officiis ipsam vel consectetur!</<span>
+                    <span class="text-primary font-secondary"><em>{{../../name}}/{{../name}}:</em></span>
+                    <span class="comment-text-bigger font-secondary">{{comment}}</span>
                 </div>
             </div>
-            {{else}}
-            <h4 class="bigFont text-secondary text-center">no comments yet</h4>
-            {{/if}}
+            {{/each}}
+            {{/each}}
+            {{/each}}
+            {{!-- <h4 class="bigFont text-secondary text-center">no comments yet</h4> --}}
+            {{!-- {{/if}} --}}
         </div>
     </div>
 </div>

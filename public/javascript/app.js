@@ -122,6 +122,7 @@ $(document).ready(function () {
 
         $.getJSON("/comment/" + id, function (data) {
             for (var i = 0; i < data.comments.length; i++) {
+                $("#from-" + data.comments[i]._id).html(data.comments[i].owner + ": ");
                 $("#" + data.comments[i]._id).html(data.comments[i].comment);
             }
         });

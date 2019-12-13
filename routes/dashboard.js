@@ -13,7 +13,17 @@ module.exports = function(app, isLoggedIn) {
                     model: "Comment"
                 }
             }
-        }).populate("sharedProjects").then(function(dbUser) {
+        }).populate({
+            path: "sharedProjects",
+            populate: {
+                path: "issues",
+                model: "Issue",
+                populate: {
+                    path: "comments",
+                    model: "Comment"
+                }
+            }
+        }).then(function(dbUser) {
 
             var projects = dbUser.projects;
             var sharedProjects = dbUser.sharedProjects;

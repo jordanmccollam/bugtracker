@@ -146,6 +146,20 @@
             {{/each}}
             {{/each}}
             {{/each}}
+            {{#each sharedProjects}}
+            {{#each issues}}
+            {{#each comments}}
+            <div class="row text-light justify-content-center mb-3">
+                <div class="col-11">
+                    <a href="/shared/{{../../_id}}"><button
+                            class="text-primary font-secondary btn-subtle"><em>{{../../name}} /
+                                {{../name}}:</em></button></a>
+                    <span class="comment-text-bigger font-secondary">{{comment}}</span>
+                </div>
+            </div>
+            {{/each}}
+            {{/each}}
+            {{/each}}
         </div>
     </div>
 </div>

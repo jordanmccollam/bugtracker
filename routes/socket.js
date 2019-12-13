@@ -10,7 +10,7 @@ module.exports = function(app, io) {
             var issueID =  data.issueID;
             var username = data.username;
 
-            db.Comment.create({comment: data.comment}).then(function (dbComment) {
+            db.Comment.create({comment: data.comment, owner: username}).then(function (dbComment) {
                 newComment = dbComment;
                 return db.Issue.findOneAndUpdate({
                     _id: issueID

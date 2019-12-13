@@ -171,6 +171,12 @@
             {{/each}}
         </div>
     </div>
+
+    <div class="row mt-5">
+        <div class="col-12 text-right font-secondary">
+            <div class="text-light mt-2">Owner: <em>{{project.owner}}</em></div>
+        </div>
+    </div>
 </div>
 
 <div class="modal" tabindex="-1" role="dialog" id="manage-project-modal">
@@ -190,7 +196,8 @@
                                 placeholder="username to add">
                         </div>
                         <div class="col-4">
-                            <button class="btn btn-outline-success btn-block add-user" data-id="{{project._id}}">Add User <i class="fas fa-handshake"></i></button>
+                            <button class="btn btn-outline-success btn-block add-user" data-id="{{project._id}}">Add
+                                User <i class="fas fa-handshake"></i></button>
                         </div>
                         <div class="col-12 text-center mt-5">
                             <button class="btn btn-outline-danger delete-project" data-id="{{project._id}}">Delete

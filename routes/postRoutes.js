@@ -5,8 +5,12 @@ module.exports = function (app) {
     // POST ---
     app.post("/addproject", function (req, res) {
         var projectID;
-        db.Project.create(req.body).then(function (dbProject) {
+        db.Project.create({
+            name: req.body.name,
+            owner: req.user.username
+        }).then(function (dbProject) {
             projectID = dbProject._id;
+
             return db.User.findOneAndUpdate({
                 _id: req.user.id
             }, {

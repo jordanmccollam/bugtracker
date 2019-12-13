@@ -199,6 +199,12 @@
                         <div class="col-4">
                             <button class="btn btn-outline-success btn-block add-user" data-id="{{project._id}}">Add User <i class="fas fa-handshake"></i></button>
                         </div>
+                        <div class="col-12 mt-3">
+                            <h3 class="text-primary border-bottom border-primary">users</h3>
+                            {{#each project.users}}
+                            <p>{{../project.users}}</p>
+                            {{/each}}
+                        </div>
                         <div class="col-12 text-center mt-5">
                             <button class="btn btn-outline-danger delete-project" data-id="{{project._id}}">Delete
                                 Project <i class="fas fa-trash-alt"></i></button>

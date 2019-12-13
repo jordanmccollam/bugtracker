@@ -47,7 +47,8 @@ require("./routes/socket")(app, io);
 require("./routes/index")(app);
 require("./routes/dashboard")(app, isLoggedIn);
 require("./routes/projects")(app, isLoggedIn);
-require("./routes/postRoutes")(app)
+require("./routes/postRoutes")(app);
+require("./routes/deleteRoutes")(app);
 require("./routes/auth")(app);
 
 // Auth routes ***

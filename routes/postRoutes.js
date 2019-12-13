@@ -49,49 +49,6 @@ module.exports = function (app) {
                 console.log(err)
             };
         });
-
-        // db.Issue.create(req.body).then(function (dbIssue) {
-        //     return db.Project.findOneAndUpdate({
-        //         _id: id
-        //     }, {
-        //         $push: {
-        //             issues: dbIssue.id
-        //         }
-        //     }, {
-        //         new: true
-        //     });
-        // }).then(function (dbProject) {
-
-        //     res.redirect("/projects/" + id);
-
-        // }).catch(function (err) {
-        //     if (err) {console.log(err)};
-        // });
     });
-
-    // new comment
-    // app.post("/newcomment/:issueID", function (req, res) {
-    //     var issueID = req.params.issueID;
-
-    //     db.Comment.create(req.body).then(function (dbComment) {
-    //         return db.Issue.findOneAndUpdate({
-    //             _id: issueID
-    //         }, {
-    //             $push: {
-    //                 comments: dbComment.id
-    //             }
-    //         }, {
-    //             new: true
-    //         })
-    //     }).then(function (dbIssue) {
-
-    //         res.redirect("back");
-
-    //     }).catch(function (err) {
-    //         if (err) {
-    //             console.log(err)
-    //         };
-    //     });
-    // });
 
 }

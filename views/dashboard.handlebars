@@ -55,13 +55,13 @@
                         <h5>issues</h5>
                         <h5 class="display-4"><i class="fas fa-hashtag d-none d-sm-inline"></i>
                             <span
-                                class="issues-count d-none">{{#if projects}}{{#each projects}}{{issues.length}}.0{{/each}}{{else}}0{{/if}}</span>
+                                class="issues-count d-none">{{#if projects}}{{#each projects}}{{issues.length}}.0{{/each}}{{else}}0{{/if}}{{#if sharedProjects}}{{#each sharedProjects}}{{issues.length}}.0{{/each}}{{else}}0{{/if}}</span>
                         </h5>
                     </div>
                     <div class="col-4">
                         <h5>comments</h5>
                         <h5 class="display-4"><i class="fas fa-hashtag d-none d-sm-inline"></i>
-                            <span class="comments-count d-none">{{#if projects}}{{#each projects}}{{#if issues}}{{#each issues}}{{comments.length}}.0{{/each}}{{else}}0{{/if}}{{/each}}{{else}}0{{/if}}</span>
+                            <span class="comments-count d-none">{{#if projects}}{{#each projects}}{{#if issues}}{{#each issues}}{{comments.length}}.0{{/each}}{{else}}0{{/if}}{{/each}}{{else}}0{{/if}}{{#if sharedProjects}}{{#each sharedProjects}}{{#if issues}}{{#each issues}}{{comments.length}}.0{{/each}}{{else}}0{{/if}}{{/each}}{{else}}0{{/if}}</span>
                         </h5>
                     </div>
                 </div>

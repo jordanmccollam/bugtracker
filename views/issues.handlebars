@@ -31,8 +31,10 @@
     </div>
 </nav>
 
-
+{{!-- MAIN CONTENT --}}
 <div class="container mt-4 pb-5">
+
+    {{!-- PROJECT TITLE --}}
     <div class="row border-bottom-purple">
         <div class="col-lg-12 d-flex justify-content-between">
             <div>
@@ -43,12 +45,15 @@
                         more</span>
                 </h2>
             </div>
+            
+            {{!-- ADD PROJECT BTN --}}
             <div>
                 <button class="btn-purple display-4" id="add-issue"><i class="fas fa-plus"></i></button>
             </div>
         </div>
     </div>
 
+    {{!-- CATEGORY FILTER --}}
     <div class="row mt-3 font-secondary">
         <div class="col-12">
             <div class="btn-group btn-block btn-group-toggle" data-toggle="buttons" id="display-category">
@@ -71,12 +76,13 @@
         </div>
     </div>
 
-    <div class="row mt-3" id="issues-container">
+    <div class="row mt-3">
+
+        {{!-- ISSUES --}}
         <div class="col-lg-8">
-            {{!-- ISSUES --}}
             {{#each project.issues}}
             <div class="col-12 mt-3">
-                <button class="btn btn-block btn-issue font-secondary findCategory" active-category="{{category}}" data-id="{{_id}}" data-name="{{name}}" >
+                <button class="btn btn-block btn-issue font-secondary findCategory" active-category="{{category}}" data-id="{{_id}}" >
                     <div class="row">
                         <div class="col-sm-8 text-left bigFont">{{name}}</div>
                         <div class="col-sm-4 text-right">
@@ -118,12 +124,14 @@
             {{/each}}
         </div>
 
+        {{!-- COMMENTS --}}
         <div class="col-lg-4 font-secondary">
-            {{!-- COMMENTS --}}
+
+            {{!-- COMMENT DISPLAY --}}
             {{#each project.issues}}
             <div class="col-12 mt-3 text-light comment" id="comment-{{_id}}">
                 <h3 class="text-center border-bottom border-light pb-2">{{name}} <i class="fas fa-comments"></i></h3>
-                <div class="comments-section border-bottom border-light" id="comment-section-{{_id}}">
+                <div class="border-bottom border-light" id="comment-section-{{_id}}">
                     {{#if comments}}
                     {{#each comments}}
                         <div class="row" id="comment-to-delete-{{_id}}">
@@ -140,6 +148,8 @@
                         <h5 class="text-secondary text-center py-3" id="no-comments-yet-{{_id}}">No Comments Yet</h5>
                     {{/if}}
                 </div>
+
+                {{!-- COMMENT FORM --}}
                 <form class="mt-2 new-comment-form" for-issue="{{_id}}" from-user="{{../user.username}}">
                     <div class="row">
                         <div class="col-10">
@@ -147,6 +157,8 @@
                                 <input type="text" class="form-control new-comment-comment" placeholder="new comment" name="comment">
                             </div>
                         </div>
+
+                        {{!-- SUBMIT COMMENT --}}
                         <div class="col-2 pl-0">
                             <button type="submit" class="btn btn-success"><i class="fas fa-paper-plane"></i></button>
                         </div>
@@ -157,6 +169,7 @@
         </div>
     </div>
 
+{{!-- DELETE PROJECT BTN --}}
     <div class="row mt-5">
         <div class="col-12 text-right font-secondary">
             <button class="btn btn-outline-danger delete-project" data-id="{{project._id}}">Delete Project <i
@@ -165,7 +178,7 @@
     </div>
 </div>
 
-{{!-- MODAL --}}
+{{!-- ADD ISSUE MODAL --}}
 <div class="modal" tabindex="-1" role="dialog" id="add-issue-modal">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">

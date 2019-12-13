@@ -2,21 +2,7 @@ var db = require("../models");
 
 module.exports = function(app, isLoggedIn) {
 
-    app.get("/projects", isLoggedIn, function(req, res) {
-
-        db.User.findOne({_id: req.user.id}).populate("projects").then(function(dbUser) {
-
-            var projects = dbUser.projects;
-
-            res.render("projects", data = {
-                user: req.user,
-                projects: projects
-            })
-        }).catch(function(err) {
-            console.log(err);
-        });
-    });
-
+    // GET project page
     app.get("/projects/:id", isLoggedIn, function(req, res) {
         var id = req.params.id;
 
@@ -32,7 +18,7 @@ module.exports = function(app, isLoggedIn) {
         })
     });
 
-    // JSON request
+    // JSON request to feed the comment content
     app.get("/comment/:id", function(req, res) {
         var id = req.params.id;
 
@@ -46,6 +32,7 @@ module.exports = function(app, isLoggedIn) {
     });
 
     // UPDATE ---
+    // Updates an issues category
     app.put("/update/:id", function(req, res) {
         var id = req.params.id;
 

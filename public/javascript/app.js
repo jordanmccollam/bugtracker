@@ -1,64 +1,136 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
-    // Variables
-    var socket = io();
+    // CLICK EVENTS ************************************************************
 
-    // Socket Listeners ************************************************
-    // New comment
-    socket.on("new comment", function(data) {
-        var newComment = $(`
-            <div class="row" id="comment-to-delete-${data.comment._id}">
-                <div class="col-10">
-                    <span class="text-purple font-italic">${data.username}: </span>
-                    <span id="${data.comment._id}"> ${data.comment.comment}</span>
-                </div>
-                <div class="col-2">
-                    <button class="btn-subtle text-danger delete-comment" comment-id="${data.comment._id}" issue-id="${data.issueID}">X</button>
-                </div>
-            </div>
-        `);
-
-        $("#no-comments-yet-" + data.issueID).hide();
-        $(".new-comment-comment").val("");
-        $("#comment-section-" + data.issueID).append(newComment);
-    });
-
-    // Delete comment
-    socket.on("delete comment", function(data) {
-        $("#comment-to-delete-" + data.commentID).remove();
-    });
-
-    // Socket Emits *******************************************************
-    // New comment
-    $(".new-comment-form").submit(function() {
+    // ADD PROJECT MODAL
+    $("#add-project").on("click", function () {
         event.preventDefault();
-        var comment = $(this).find(".new-comment-comment").val();
-        var issueID = $(this).attr("for-issue");
-        var username = $(this).attr("from-user");
-
-        var data = {
-            comment: comment,
-            issueID: issueID,
-            username: username
-        };
-
-        socket.emit("new comment", data);
+        $("#add-project-modal").modal("show");
     });
 
-    // Delete comment
-    $(".delete-comment").on("click", function() {
+    // ADD ISSUE MODAL
+    $("#add-issue").on("click", function () {
         event.preventDefault();
-        var commentID = $(this).attr("comment-id");
-        var issueID = $(this).attr("issue-id");
-        
-        var data = {
-            commentID: commentID,
-            issueID: issueID
-        };
-
-        socket.emit("delete comment", data);
+        $("#add-issue-modal").modal("show");
     });
 
+    // DELETE *****************************************************************
 
-// End of jQuery
-});
+    // DELETE PROJECT
+    $(".delete-project").on("click", function () {
+        event.preventDefault();
+        var id = $(this).attr("data-id");
+
+        var redirect = window.location.href = "/dashboard";
+
+        $.ajax({
+            url: "/delete/" + id,
+            type: "DELETE",
+        }).then(redirect);
+    });
+
+    // DELETE ISSUE
+    $(".delete-issue").on("click", function () {
+        event.preventDefault();
+        var issueID = $(this).attr("data-id");
+        var projectID = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+        var redirect = window.location.reload();
+
+        $.ajax({
+            url: "/delete/" + projectID + "/" + issueID,
+            type: "DELETE",
+        }).then(redirect);
+    });
+
+    // UPDATE *****************************************************************
+
+    // UPDATES ISSUE CATEGORY
+    $(".issue-category").on("click", function () {
+        var category = $(this).attr("category");
+        var id = $(this).attr("data-id");
+        var redirect = window.location.reload();
+
+        $.ajax({
+            url: "/update/" + id,
+            type: "PUT",
+            data: {
+                category: category
+            }
+        }).then(redirect);
+    });
+
+    // FUNCTIONALITY **********************************************************
+
+    // Finds the issue's category and displays it in the inner issue btn
+    $(".findCategory").on("click", function () {
+        var category = $(this).attr("active-category");
+        $(this).find("." + category).addClass("active");
+    });
+
+    // CALLS the CHANGE CATEGORY function which displays the correct issues
+    const categoryBar = $("#display-category");
+    $(categoryBar).on("click", function () {
+        setTimeout(changeCategory, 100);
+    })
+
+    // displays the correct issues
+    function changeCategory() {
+        var displayCategory = $(".display-category.active").find("input").val();
+        var issues = $(".btn-issue")
+        Array.from(issues).forEach(function (issue) {
+            var value = $(issue).attr("active-category");
+            $(issue).parent().show();
+            if (displayCategory === "all") {
+                $(issue).parent().show();
+                return;
+            }
+            if (value !== displayCategory) {
+                $(issue).parent().hide();
+            }
+        })
+    }
+
+    // GET JSON REQUEST to POPULATE COMMENTS
+    $(".comment").hide();
+    $(".btn-issue").on("click", function () {
+        $(".comment").hide();
+        var id = $(this).attr("data-id");
+        $("#comment-" + id).show();
+
+        var comments = [];
+
+        $.getJSON("/comment/" + id, function (data) {
+            for (var i = 0; i < data.comments.length; i++) {
+                $("#" + data.comments[i]._id).html(data.comments[i].comment);
+            }
+        });
+    });
+
+    // Counts the total issues for dashboard
+    countIssues();
+
+    function countIssues() {
+        var issuesArr = $(".issues-count").html().split(".");
+        var issuesCount = 0
+        for (var i = 0; i < issuesArr.length; i++) {
+            issuesCount += parseInt(issuesArr[i]);
+        }
+        $(".issues-count").html(issuesCount);
+        $(".issues-count").removeClass("d-none");
+    }
+
+    // Counts the total comments for dashboard
+    countComments();
+
+    function countComments() {
+        var commentsArr = $(".comments-count").html().split(".");
+        var commentsCount = 0;
+        for (var i = 0; i < commentsArr.length; i++) {
+            commentsCount += parseInt(commentsArr[i]);
+        }
+        $(".comments-count").html(commentsCount);
+        $(".comments-count").removeClass("d-none");
+    }
+
+    // END of jQuery
+})

@@ -31,16 +31,18 @@
     </div>
 </nav>
 
-{{!-- Dashboard --}}
+
 <div class="container my-5">
 
-    {{!-- User --}}
+    {{!-- USER DISPLAY --}}
     <div class="row mb-5 text-center">
         <div class="col-lg-4 text-center text-light mb-5 mb-lg-0 pt-lg-5">
             <i class="fas fa-user-circle fa-3x"></i>
             <h2 class="font-primary bigFont">{{user.username}}</h2>
         </div>
 
+
+        {{!-- OVERVIEW / PROGRESS --}}
         <div class="col-lg-8">
             <div class="border-left-purple">
                 <h2 class="font-primary text-purple text-center">overview</h2>
@@ -52,13 +54,13 @@
                     <div class="col-4">
                         <h5>issues</h5>
                         <h5 class="display-4"><i class="fas fa-hashtag d-none d-sm-inline"></i> 
-                        <span class="issues-count d-none">{{#each projects}}{{issues.length}}.0{{/each}}</span>
+                        <span class="issues-count">{{#if projects}}{{#each projects}}{{issues.length}}.0{{/each}}{{else}}0{{/if}}</span>
                         </h5>
                     </div>
                     <div class="col-4">
                         <h5>comments</h5>
                         <h5 class="display-4"><i class="fas fa-hashtag d-none d-sm-inline"></i>
-                        <span class="comments-count d-none">{{#each projects}}{{#each issues}}{{comments.length}}.0{{/each}}{{/each}}</span>
+                        <span class="comments-count">{{#if projects}}{{#each projects}}{{#each issues}}{{comments.length}}.0{{/each}}{{/each}}{{else}}0{{/if}}</span>
                         </h5>
                     </div>
                 </div>
@@ -67,6 +69,8 @@
     </div>
 
     <div class="row">
+
+        {{!-- PROJECTS --}}
         <div class="col-lg-7 pb-4">
             <div class="row">
                 <div class="col-lg-12 d-flex justify-content-between">
@@ -98,6 +102,7 @@
         </div>
 
 
+        {{!-- COMMENTS --}}
         <div class="col-lg-5 border-left border-primary mt-5 mt-lg-0">
             <h2 class="font-primary text-primary text-center">comments </h2>
             {{#each projects}}
@@ -116,7 +121,7 @@
     </div>
 </div>
 
-{{!-- MODAL --}}
+{{!-- ADD PROJECT MODAL --}}
 <div class="modal" tabindex="-1" role="dialog" id="add-project-modal">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">

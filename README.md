@@ -29,6 +29,7 @@ The Bug Tacker (or issue tracker) is an application for developer project manage
 ## Future Plans
 - Cleaner / more professional UI and instructions
 - More Management! Project / user management is currently very limited (due to limited development time). 
+- User Assignements. I want issues to be assignable to any user in the project.
 
 ## Development
 This project was a big one! I, Jordan McCollam, worked on this project in my free time between homework for the Vanderbilt Coding Bootcamp and work as an Audio Engineer. 

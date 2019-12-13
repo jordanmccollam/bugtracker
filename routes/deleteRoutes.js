@@ -68,22 +68,36 @@ module.exports = function (app) {
         var projectID = req.params.projectID;
         var issueID = req.params.issueID;
 
-        db.Issue.deleteOne({
+        db.Issue.findOne({
             _id: issueID
         }).then(function (dbIssue) {
 
-            db.Project.findOneAndUpdate({
-                _id: projectID
-            }, {
-                $pull: {
-                    issues: issueID
+            // Delete the issues comments
+            db.Comment.remove({
+                _id: {
+                    $in: dbIssue.comments
                 }
-            }).then(function (dbUser) {
-                console.log("REMOVED " + id);
-            }).catch(function (err) {
+            }, function (err) {
                 if (err) {
                     console.log(err)
-                }
+                };
+
+                // Delete project and redirect
+                dbIssue.remove();
+
+                // Delete from parent
+                db.Project.findOneAndUpdate({
+                    _id: projectID
+                }, {
+                    $pull: {
+                        issues: issueID
+                    }
+                }).then(function (dbProject) {}).catch(function (err) {
+                    if (err) {
+                        console.log(err)
+                    }
+                });
+
             });
 
         }).catch(function (err) {

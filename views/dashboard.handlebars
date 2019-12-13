@@ -85,10 +85,9 @@
             {{#each projects}}
             <a href="/projects/{{_id}}" class="btn btn-block btn-project font-secondary">
                 <div class="row">
-                    <div class="col-sm-6 text-left bigFont">{{name}}</div>
-                    <div class="col-sm-6 text-right">
-                        <i class="fas fa-exclamation"></i>issues: {{issues.length}} | <i class="fas fa-comments"></i>
-                        comments: {{issues.name}}
+                    <div class="col-sm-10 text-left bigFont">{{name}}</div>
+                    <div class="col-sm-2 text-right">
+                        <i class="fas fa-exclamation"></i> issues: {{issues.length}}
                     </div>
                 </div>
             </a>

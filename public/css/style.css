@@ -64,6 +64,14 @@ body {
     background: #ff3392;
     color: #f8f9fa;
 }
+.btn-shared {
+    background: #f8f9fa;
+}
+.btn-shared:hover {
+    cursor: pointer;
+    background: #28a745;
+    color: #f8f9fa;
+}
 .btn-issue {
     background: #f8f9fa;
 }

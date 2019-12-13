@@ -42,7 +42,7 @@ module.exports = function (app) {
                 });
         }).then(function (dbProject) {
 
-            res.redirect("/projects/" + id);
+            res.redirect("back");
 
         }).catch(function (err) {
             if (err) {

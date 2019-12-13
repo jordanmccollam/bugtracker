@@ -14,18 +14,26 @@ $(document).ready(function () {
         $("#add-issue-modal").modal("show");
     });
 
+    // MANAGE PROJECT MODAL
+    $(".manage-project").on("click", function() {
+        event.preventDefault();
+        $("#manage-project-modal").modal("show");
+    })
+
     // DELETE *****************************************************************
 
     // DELETE PROJECT
     $(".delete-project").on("click", function () {
         event.preventDefault();
         var id = $(this).attr("data-id");
+        // var users = [];
 
         var redirect = window.location.href = "/dashboard";
 
         $.ajax({
             url: "/delete/" + id,
             type: "DELETE",
+            // data: 
         }).then(redirect);
     });
 
@@ -56,6 +64,19 @@ $(document).ready(function () {
             data: {
                 category: category
             }
+        }).then(redirect);
+    });
+
+    // ADDS USER TO PROJECT
+    $(".add-user").on("click", function() {
+        event.preventDefault();
+        var redirect = window.location.reload();
+        var projectID = $(this).attr("data-id");
+        var username = $("#add-user-username").val();
+
+        $.ajax({
+            url: "/adduser/" + username + "/" + projectID,
+            type: "PUT"
         }).then(redirect);
     });
 

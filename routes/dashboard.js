@@ -13,13 +13,15 @@ module.exports = function(app, isLoggedIn) {
                     model: "Comment"
                 }
             }
-        }).then(function(dbUser) {
+        }).populate("sharedProjects").then(function(dbUser) {
 
             var projects = dbUser.projects;
+            var sharedProjects = dbUser.sharedProjects;
 
             res.render("dashboard", data = {
                 user: req.user,
-                projects: projects
+                projects: projects,
+                sharedProjects: sharedProjects
             })
         }).catch(function(err) {
             console.log(err);

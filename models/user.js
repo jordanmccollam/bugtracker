@@ -12,6 +12,10 @@ var UserSchema = new mongoose.Schema({
     projects: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Project"
+    }],
+    sharedProjects: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Project"
     }]
 });
 

@@ -35,10 +35,18 @@ module.exports = function (app) {
                     console.log(err)
                 };
 
-                // Delete project and redirect
-                dbProject.remove();
+                // Delete from parent(s)
+                for (var j = 0; j < dbProject.users.length; j++) {
+                    db.User.updateOne(
+                        {username: dbProject.users[j]},
+                        { $pull: {sharedProjects: id}}
+                    ).then(function(dbUser){
+                        console.log("REMOVED SHARED");
+                    }).catch(function(err) {
+                        if (err) {console.log(err)};
+                    });
+                }
 
-                // Delete from parent
                 db.User.findOneAndUpdate({
                     _id: req.user.id
                 }, {
@@ -52,6 +60,9 @@ module.exports = function (app) {
                         console.log(err)
                     }
                 });
+
+                // Delete project
+                dbProject.remove();
 
             });
 

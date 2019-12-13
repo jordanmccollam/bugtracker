@@ -53,14 +53,16 @@
                     </div>
                     <div class="col-4">
                         <h5>issues</h5>
-                        <h5 class="display-4"><i class="fas fa-hashtag d-none d-sm-inline"></i> 
-                        <span class="issues-count d-none">{{#if projects}}{{#each projects}}{{issues.length}}.0{{/each}}{{else}}0{{/if}}</span>
+                        <h5 class="display-4"><i class="fas fa-hashtag d-none d-sm-inline"></i>
+                            <span
+                                class="issues-count d-none">{{#if projects}}{{#each projects}}{{issues.length}}.0{{/each}}{{else}}0{{/if}}</span>
                         </h5>
                     </div>
                     <div class="col-4">
                         <h5>comments</h5>
                         <h5 class="display-4"><i class="fas fa-hashtag d-none d-sm-inline"></i>
-                        <span class="comments-count d-none">{{#if projects}}{{#each projects}}{{#each issues}}{{comments.length}}.0{{/each}}{{/each}}{{else}}0{{/if}}</span>
+                            <span
+                                class="comments-count d-none">{{#if projects}}{{#each projects}}{{#each issues}}{{comments.length}}.0{{/each}}{{/each}}{{else}}0{{/if}}</span>
                         </h5>
                     </div>
                 </div>
@@ -75,7 +77,7 @@
             <div class="row">
                 <div class="col-lg-12 d-flex justify-content-between">
                     <div>
-                        <h2 class="font-primary text-pink">projects</h2>
+                        <h2 class="font-primary text-pink pl-3">projects</h2>
                     </div>
                     <div>
                         <button class="btn-pink bigFont" id="add-project"><i class="fas fa-plus"></i></button>
@@ -99,6 +101,32 @@
             {{else}}
             <h4 class="bigFont text-secondary text-center">no projects yet</h4>
             {{/if}}
+
+            {{!-- SHARED PROJECTS --}}
+            <div class="row mt-5">
+                <div class="col-lg-12 text-right">
+                    <div>
+                        <h3 class="font-primary text-success pr-3">shared with you</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center mb-3">
+                <div class="col-11 border-bottom border-success"></div>
+            </div>
+            {{#if sharedProjects}}
+            {{#each sharedProjects}}
+            <a href="/shared/{{_id}}" class="btn btn-block btn-shared font-secondary">
+                <div class="row">
+                    <div class="col-sm-10 text-left bigFont">{{name}}</div>
+                    <div class="col-sm-2 text-right">
+                        <i class="fas fa-exclamation"></i> issues: {{issues.length}}
+                    </div>
+                </div>
+            </a>
+            {{/each}}
+            {{else}}
+            <h4 class="text-secondary text-center">no projects shared with you yet</h4>
+            {{/if}}
         </div>
 
 
@@ -110,7 +138,9 @@
             {{#each comments}}
             <div class="row text-light justify-content-center mb-3">
                 <div class="col-11">
-                    <a href="/projects/{{../../_id}}"><button class="text-primary font-secondary btn-subtle"><em>{{../../name}} / {{../name}}:</em></button></a>
+                    <a href="/projects/{{../../_id}}"><button
+                            class="text-primary font-secondary btn-subtle"><em>{{../../name}} /
+                                {{../name}}:</em></button></a>
                     <span class="comment-text-bigger font-secondary">{{comment}}</span>
                 </div>
             </div>

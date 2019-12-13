@@ -48,7 +48,6 @@ $(document).ready(function() {
     // Delete comment
     $(".delete-comment").on("click", function() {
         event.preventDefault();
-        alert("working");
         var commentID = $(this).attr("comment-id");
         var issueID = $(this).attr("issue-id");
         

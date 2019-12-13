@@ -90,21 +90,9 @@ $(document).ready(function() {
         });
     });
 
-    // $(".delete-comment").on("click", function() {
-    //     event.preventDefault();
-    //     var commentID = $(this).attr("comment-id");
-    //     var issueID = $(this).attr("issue-id");
-    //     var redirect = window.location.reload();
-
-    //     $.ajax({
-    //         url: "/deletecomment/" + issueID + "/" + commentID,
-    //         type: "DELETE"
-    //     }).then(redirect);
-    // });
-
     countIssues();
     function countIssues() {
-        var issuesArr = $(".issues-count").html().split("");
+        var issuesArr = $(".issues-count").html().split(".");
         var issuesCount = 0
         for (var i = 0; i < issuesArr.length; i++) {
             issuesCount += parseInt(issuesArr[i]);
@@ -115,7 +103,7 @@ $(document).ready(function() {
 
     countComments();
     function countComments() {
-        var commentsArr = $(".comments-count").html().split("");
+        var commentsArr = $(".comments-count").html().split(".");
         var commentsCount = 0;
         for (var i = 0; i < commentsArr.length; i++) {
             commentsCount += parseInt(commentsArr[i]);

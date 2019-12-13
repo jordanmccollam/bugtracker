@@ -30,20 +30,6 @@
         </div>
     </div>
 </nav>
-{{!-- Nav tabs --}}
-{{!-- <div class="container">
-    <div class="row text-secondary">
-        <a class="col-4 nav-tab active" href="/dashboard">
-            <div class="shaker"><i class="fas fa-id-card bigFont"></i></div>
-        </a>
-        <a class="col-4 nav-tab" href="/projects">
-            <div class="shaker"><i class="fas fa-project-diagram bigFont"></i></div>
-        </a>
-        <a class="col-4 nav-tab" href="/comments">
-            <div class="shaker"><i class="fas fa-comments bigFont"></i></div>
-        </a>
-    </div>
-</div> --}}
 
 {{!-- Dashboard --}}
 <div class="container my-5">
@@ -66,13 +52,13 @@
                     <div class="col-4">
                         <h5>issues</h5>
                         <h5 class="display-4"><i class="fas fa-hashtag d-none d-sm-inline"></i> 
-                        <span class="issues-count d-none">{{#each projects}}{{issues.length}}{{/each}}</span>
+                        <span class="issues-count d-none">{{#each projects}}{{issues.length}}.0{{/each}}</span>
                         </h5>
                     </div>
                     <div class="col-4">
                         <h5>comments</h5>
                         <h5 class="display-4"><i class="fas fa-hashtag d-none d-sm-inline"></i>
-                        <span class="comments-count d-none">{{#each projects}}{{#each issues}}{{comments.length}}{{/each}}{{/each}}</span>
+                        <span class="comments-count d-none">{{#each projects}}{{#each issues}}{{comments.length}}.0{{/each}}{{/each}}</span>
                         </h5>
                     </div>
                 </div>
@@ -112,7 +98,6 @@
             {{/if}}
         </div>
 
-        {{!-- <div class="col-lg-1"></div> --}}
 
         <div class="col-lg-5 border-left border-primary mt-5 mt-lg-0">
             <h2 class="font-primary text-primary text-center">comments </h2>
@@ -120,7 +105,7 @@
             {{#each issues}}
             {{#each comments}}
             <div class="row text-light justify-content-center mb-3">
-                <div class="col-11 border-top">
+                <div class="col-11">
                     <a href="/projects/{{../../_id}}"><button class="text-primary font-secondary btn-subtle"><em>{{../../name}} / {{../name}}:</em></button></a>
                     <span class="comment-text-bigger font-secondary">{{comment}}</span>
                 </div>

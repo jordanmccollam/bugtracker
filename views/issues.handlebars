@@ -9,11 +9,11 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto align-items-center">
                 {{#if user}}
                 <li class="nav-item">
-                    <p class="nav-link text-primary"><span class="text-muted font-italic">signed in as &nbsp;</span>
-                        {{user.username}}</p>
+                    <div class="nav-link text-primary"><span class="text-muted font-italic">signed in as &nbsp;</span>
+                        {{user.username}}</div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">logout</a>
@@ -30,20 +30,6 @@
         </div>
     </div>
 </nav>
-{{!-- Nav tabs --}}
-{{!-- <div class="container">
-    <div class="row text-secondary">
-        <a class="col-4 nav-tab" href="/dashboard">
-            <div class="shaker"><i class="fas fa-id-card bigFont"></i></div>
-        </a>
-        <a class="col-4 nav-tab active" href="/projects">
-            <div class="shaker"><i class="fas fa-project-diagram bigFont"></i></div>
-        </a>
-        <a class="col-4 nav-tab" href="/comments">
-            <div class="shaker"><i class="fas fa-comments bigFont"></i></div>
-        </a>
-    </div>
-</div> --}}
 
 
 <div class="container mt-4 pb-5">

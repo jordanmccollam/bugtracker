@@ -9,10 +9,11 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto align-items-center">
                 {{#if user}}
                 <li class="nav-item">
-                    <p class="nav-link text-primary"><span class="text-muted font-italic">signed in as &nbsp;</span> {{user.username}}</p>
+                    <div class="nav-link text-primary"><span class="text-muted font-italic">signed in as &nbsp;</span>
+                        {{user.username}}</div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">logout</a>
